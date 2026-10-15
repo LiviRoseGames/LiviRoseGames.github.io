@@ -1,18 +1,18 @@
-\---
+---
 
 layout: default
 
 title: Wild Derby Carnival — Case Study
 
-\---
+---
 
 
 
-\# Wild Derby Carnival
+# Wild Derby Carnival
 
 
 
-\*\*Wholesome Games Game Jam 2026 · Godot · GDScript · Team of Two\*\*
+**Wholesome Games Game Jam 2026 · Godot · GDScript · Team of Two**
 
 
 
@@ -20,19 +20,19 @@ A horse-racing game inspired by the classic carnival game, where players flick a
 
 
 
-\[Play Wild Derby Carnival](https://livirosegames.itch.io/wild-derby-carnival)
+[Play Wild Derby Carnival](https://livirosegames.itch.io/wild-derby-carnival)
 
 
 
-!\[Wild Derby Carnival game title card]({{ '/assets/images/wild-derby-carnival.jpg' | relative\_url }})
+![Wild Derby Carnival game title card]({{ '/assets/images/wild-derby-carnival.jpg' | relative_url }})
 
 
 
-\## Overview
+## Overview
 
 
 
-\*Wild Derby Carnival\* was developed for Wholesome Games Game Jam 2026 in collaboration with an artist. What began as a tabletop-inspired prototype grew into a multi-level racing game featuring horse selection, AI opponents, animated interfaces, and a complete game flow.
+*Wild Derby Carnival* was developed for Wholesome Games Game Jam 2026 in collaboration with an artist. What began as a tabletop-inspired prototype grew into a multi-level racing game featuring horse selection, AI opponents, animated interfaces, and a complete game flow.
 
 
 
@@ -40,11 +40,11 @@ I handled the programming in Godot using GDScript. We built the initial version 
 
 
 
-\## My Contributions
+## My Contributions
 
 
 
-\### Physics-Based Gameplay and Controls
+### Physics-Based Gameplay and Controls
 
 
 
@@ -52,15 +52,15 @@ I implemented the core ball-and-scoring system that connects player input to hor
 
 
 
-\- \*\*Flick-based controls:\*\* Detected mouse flicks and translated their speed into ball-launch power.
+- **Flick-based controls:** Detected mouse flicks and translated their speed into ball-launch power.
 
-\- \*\*Physics and collisions:\*\* Implemented ball movement, table boundaries, and interactions with scoring holes.
+- **Physics and collisions:** Implemented ball movement, table boundaries, and interactions with scoring holes.
 
-\- \*\*Scoring system:\*\* Configured hole types with different score values and automatically matched their ring colors to their types.
+- **Scoring system:** Configured hole types with different score values and automatically matched their ring colors to their types.
 
-\- \*\*Ball lifecycle:\*\* Managed ball states, missed shots, scoring animations, and the return of the ball to the player's hold area.
+- **Ball lifecycle:** Managed ball states, missed shots, scoring animations, and the return of the ball to the player's hold area.
 
-\- \*\*Gameplay feedback:\*\* Added motion lines, a rotating highlight, a fading shadow, and spin effects to make ball movement more readable and satisfying.
+- **Gameplay feedback:** Added motion lines, a rotating highlight, a fading shadow, and spin effects to make ball movement more readable and satisfying.
 
 
 
@@ -68,7 +68,7 @@ These systems needed to work together so that each shot felt responsive while ke
 
 
 
-\### Race Progression and AI Opponents
+### Race Progression and AI Opponents
 
 
 
@@ -76,15 +76,15 @@ I developed the race system that turns individual scoring shots into progress to
 
 
 
-\- \*\*Player race movement:\*\* Advance the selected horse according to the player's score.
+- **Player race movement:** Advance the selected horse according to the player's score.
 
-\- \*\*AI opponents:\*\* Give computer-controlled horses independent scoring timers and randomized movement, allowing all horses to race simultaneously.
+- **AI opponents:** Give computer-controlled horses independent scoring timers and randomized movement, allowing all horses to race simultaneously.
 
-\- \*\*Difficulty-based behavior:\*\* Adjust AI success rates and movement checks according to hole difficulty.
+- **Difficulty-based behavior:** Adjust AI success rates and movement checks according to hole difficulty.
 
-\- \*\*Race completion:\*\* Detect the first horse to cross the finish line, stop the race, and display an animated winner announcement.
+- **Race completion:** Detect the first horse to cross the finish line, stop the race, and display an animated winner announcement.
 
-\- \*\*Race presentation:\*\* Build the track layout, animate background bushes, and coordinate horse movement with the finish line.
+- **Race presentation:** Build the track layout, animate background bushes, and coordinate horse movement with the finish line.
 
 
 
@@ -92,7 +92,7 @@ This required coordinating separate gameplay systems so that player scoring, AI 
 
 
 
-\### Modular Levels and Game Flow
+### Modular Levels and Game Flow
 
 
 
@@ -100,15 +100,15 @@ As the game expanded beyond its initial prototype, I reworked the project struct
 
 
 
-\- \*\*Dynamic level loading:\*\* Built a level manager that loads level-specific table scenes and coordinates level progression, restarting, and transitions.
+- **Dynamic level loading:** Built a level manager that loads level-specific table scenes and coordinates level progression, restarting, and transitions.
 
-\- \*\*Reusable obstacles:\*\* Created configurable moving-block and cycling-piston obstacles with adjustable movement, timing, and direction.
+- **Reusable obstacles:** Created configurable moving-block and cycling-piston obstacles with adjustable movement, timing, and direction.
 
-\- \*\*State management:\*\* Replaced loosely connected ball-state flags with a state machine to make ball behavior and transitions more predictable.
+- **State management:** Replaced loosely connected ball-state flags with a state machine to make ball behavior and transitions more predictable.
 
-\- \*\*Scene transitions:\*\* Separated the intro, gameplay, and ending into distinct scenes, with animated curtain transitions between them.
+- **Scene transitions:** Separated the intro, gameplay, and ending into distinct scenes, with animated curtain transitions between them.
 
-\- \*\*Replay flow:\*\* Implemented progression between levels, restarting after a loss, and replaying from the beginning after completing the final level.
+- **Replay flow:** Implemented progression between levels, restarting after a loss, and replaying from the beginning after completing the final level.
 
 
 
@@ -116,7 +116,7 @@ This refactoring helped separate responsibilities and made it easier to add new 
 
 
 
-\### Horse Selection and Presentation
+### Horse Selection and Presentation
 
 
 
@@ -124,15 +124,15 @@ I implemented the interactive horse-selection system and several visual details 
 
 
 
-\- Detect mouse hover and clicks on individual horses.
+- Detect mouse hover and clicks on individual horses.
 
-\- Animate horse heads and highlight hovered or selected horses.
+- Animate horse heads and highlight hovered or selected horses.
 
-\- Display horse names during selection and style them with randomized animated text.
+- Display horse names during selection and style them with randomized animated text.
 
-\- Randomize horse appearances while preserving compatible body, head, and face variants.
+- Randomize horse appearances while preserving compatible body, head, and face variants.
 
-\- Animate the title, buttons, winner display, and other interface elements.
+- Animate the title, buttons, winner display, and other interface elements.
 
 
 
@@ -140,7 +140,7 @@ I also consolidated button animations into a reusable component with configurabl
 
 
 
-\### Audio and Interface Polish
+### Audio and Interface Polish
 
 
 
@@ -148,15 +148,15 @@ Following the original game jam submission, I continued improving the player exp
 
 
 
-\- Integrated sound effects into the updated game architecture.
+- Integrated sound effects into the updated game architecture.
 
-\- Added collision sounds and varied the pitch and volume of repeated impacts.
+- Added collision sounds and varied the pitch and volume of repeated impacts.
 
-\- Refined tutorial layout, button behavior, and the final tutorial step.
+- Refined tutorial layout, button behavior, and the final tutorial step.
 
-\- Coordinated intro animations with game loading and scene transitions.
+- Coordinated intro animations with game loading and scene transitions.
 
-\- Fixed gameplay edge cases involving ball states, missed shots, and level loading.
+- Fixed gameplay edge cases involving ball states, missed shots, and level loading.
 
 
 
@@ -164,7 +164,7 @@ These updates helped make the game more consistent and polished beyond its initi
 
 
 
-\## Collaboration and Development Workflow
+## Collaboration and Development Workflow
 
 
 
@@ -176,7 +176,7 @@ As the project grew beyond its initial game jam scope, I continued refining the 
 
 
 
-\## What I Learned
+## What I Learned
 
 
 
@@ -188,7 +188,7 @@ It also reinforced the importance of state management, reusable components, and 
 
 
 
-\## Technologies
+## Technologies
 
 
 
