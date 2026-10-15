@@ -22,7 +22,7 @@ My work spans game development, gameplay systems, and practical applications des
 
 
 
-\[Explore My Projects](#featured-projects) · \[View My Itch.io](https://livirosegames.itch.io/) · \[Résumé](assets/documents/resume.pdf)
+\[Explore My Projects](#featured-projects) · \[View My Itch.io](https://livirosegames.itch.io/) · \[Résumé]({{ '/assets/documents/resume.pdf' | relative\_url }})
 
 
 
@@ -39,6 +39,8 @@ I build both interactive experiences and software for practical, real-world need
 
 
 \### Are We There Yet?
+
+!\[Are We There Yet? game title card]({{ '/assets/images/are-we-there-yet.jpg' | relative\_url }})
 
 \*\*Team Game Jam · GMTK 2026 · Godot · GDScript\*\*
 
@@ -81,6 +83,8 @@ A desktop application built to help manage supplies and lesson plans at an educa
 
 
 \### Wild Derby Carnival
+
+!\[Wild Derby Carnival game title card]({{ '/assets/images/wild-derby-carnival.jpg' | relative\_url }})
 
 \*\*Duo Game Jam · Wholesome Games Game Jam 2026 · Godot · GDScript\*\*
 
@@ -246,5 +250,5 @@ I'm interested in opportunities to learn, collaborate, and contribute to softwar
 
 
 
-\[Résumé](assets/documents/resume.pdf)
+\[Résumé]({{ '/assets/documents/resume.pdf' | relative\_url }})
 
