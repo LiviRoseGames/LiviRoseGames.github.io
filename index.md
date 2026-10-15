@@ -97,7 +97,7 @@ Git, GitHub, Visual Studio, Blender, Adobe Creative Suite
 
 ### Education
 
-**Bachelor of Science in Computer Science — Expected 2027**
+**Bachelor of Science in Computer Science — Expected 2028**
 
 California State University, Channel Islands · Extended University
 
