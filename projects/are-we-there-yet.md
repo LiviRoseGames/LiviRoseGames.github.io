@@ -1,80 +1,154 @@
 ---
+layout: default
+title: Are We There Yet?
+description: A technical breakdown of my contributions to Are We There Yet?, a raindrop racing game made for GMTK Game Jam 2026.
+---
 
-# Are We There Yet?
+<div class="case-study-hero">
+  <p class="eyebrow">GMTK GAME JAM 2026 · GAME DEVELOPMENT</p>
+  <h1>Are We <span class="text-blue">There Yet?</span></h1>
+  <p class="case-study-tagline">
+    A little rain. A long ride. A race across the window.
+  </p>
+  <img
+    class="case-study-cover"
+    src="{{ '/assets/images/are-we-there-yet.jpg' | relative_url }}"
+    alt="Are We There Yet? game title artwork"
+  >
+  <div class="case-study-facts">
+    <div><span>ENGINE</span><strong>Godot</strong></div>
+    <div><span>LANGUAGE</span><strong>GDScript</strong></div>
+    <div><span>TEAM</span><strong>4 people</strong></div>
+    <div><span>ROLE</span><strong>Programmer</strong></div>
+  </div>
+  <div class="project-links">
+    <a href="https://thejackxbl.itch.io/are-we-there-yet" target="_blank" rel="noopener">Play the game ↗</a>
+    <a href="{{ '/games/' | relative_url }}">Back to games →</a>
+  </div>
+</div>
 
-**GMTK Game Jam 2026 · Godot · GDScript · Team of Four**
+<section class="case-study-section">
+  <p class="eyebrow">01 / OVERVIEW</p>
+  <h2>A race between raindrops.</h2>
+  <p>
+    Are We There Yet? is a raindrop-racing game created for GMTK Game Jam
+    2026. Players follow a race across a rainy window, with characters,
+    obstacles, and interactions bringing the experience to life.
+  </p>
+  <p>
+    I worked on a team of four: two programmers and two artists. As the
+    programmer with prior experience using Godot and GitHub, I also helped
+    establish our technical workflow and coordinate development.
+  </p>
+</section>
 
-A raindrop-racing game about passing the time by watching raindrops race.
+<section class="case-study-section">
+  <p class="eyebrow">02 / MY CONTRIBUTIONS</p>
+  <h2>Turning the concept into a playable experience.</h2>
+  <p>
+    My work covered several parts of the game, from core gameplay systems
+    to presentation and player feedback.
+  </p>
 
-[Play Are We There Yet?](https://thejackxbl.itch.io/are-we-there-yet)
+  <div class="case-study-feature-grid">
+    <article class="case-study-feature">
+      <span class="feature-number">01</span>
+      <h3>Gameplay & progression</h3>
+      <p>
+        Developed gameplay and progression systems, including day timers,
+        variable setups, scoring, and boost droplets.
+      </p>
+    </article>
+    <article class="case-study-feature">
+      <span class="feature-number">02</span>
+      <h3>Player interactions</h3>
+      <p>
+        Implemented player interactions, including the hand-knock ability
+        and its animation.
+      </p>
+    </article>
+    <article class="case-study-feature">
+      <span class="feature-number">03</span>
+      <h3>Obstacles & effects</h3>
+      <p>
+        Built obstacle spawning and cleanup, along with related effects
+        and visual feedback.
+      </p>
+    </article>
+    <article class="case-study-feature">
+      <span class="feature-number">04</span>
+      <h3>Presentation & flow</h3>
+      <p>
+        Worked on cutscenes, transitions, and the end screen to connect
+        gameplay into a complete experience.
+      </p>
+    </article>
+  </div>
+</section>
 
-![Are We There Yet? game title card]({{ '/assets/images/are-we-there-yet.jpg' | relative_url }})
+<section class="case-study-section">
+  <p class="eyebrow">03 / TECHNICAL HIGHLIGHT</p>
+  <h2>Connecting dialogue to character-specific audio.</h2>
+  <p>
+    One of the more interesting technical challenges was adapting
+    Godot Dialogue Manager to work with ACVoicebox.
+  </p>
+  <p>
+    Rather than having dialogue trigger audio for an entire line at once,
+    I adapted the integration so Dialogue Manager could feed text to
+    ACVoicebox character by character. This allowed dialogue to produce
+    the kind of sequential, character-specific sound associated with
+    Animal Crossing-style conversations.
+  </p>
+  <p>
+    This involved working across two existing tools and connecting their
+    behavior to achieve a presentation style that neither integration
+    provided in exactly the form we needed.
+  </p>
+</section>
 
-## Overview
+<section class="case-study-section">
+  <p class="eyebrow">04 / TEAMWORK & WORKFLOW</p>
+  <h2>Keeping a small team moving.</h2>
+  <p>
+    With four people working across programming and art, communication
+    and integration mattered just as much as implementation.
+  </p>
+  <ul class="case-study-list">
+    <li>Helped establish the team's Godot and GitHub workflow.</li>
+    <li>Organized daily planning around tasks and areas of overlap.</li>
+    <li>Reviewed and merged teammates' pull requests.</li>
+    <li>Coordinated technical work to reduce conflicts and keep features integrating.</li>
+  </ul>
+  <p>
+    Having previous experience with the engine and version control meant
+    I could help teammates navigate the development process while
+    continuing to build the game.
+  </p>
+</section>
 
-_Are We There Yet?_ was a team project developed for GMTK Game Jam 2026. Our four-person team consisted of two programmers and two artists.
+<section class="case-study-section case-study-results">
+  <p class="eyebrow">05 / RESULTS</p>
+  <h2>Recognized across multiple categories.</h2>
+  <p>
+    Are We There Yet? received strong recognition in the GMTK Game Jam
+    ratings, particularly for its creative direction and presentation.
+  </p>
+  <div class="recognition-grid">
+    <div><strong>Top 1%</strong><span>Creativity</span></div>
+    <div><strong>Top 1%</strong><span>Artwork</span></div>
+    <div><strong>Top 1%</strong><span>Narrative</span></div>
+    <div><strong>Top 2%</strong><span>Audio</span></div>
+    <div><strong>Top 5%</strong><span>Enjoyment</span></div>
+  </div>
+</section>
 
-As one of the programmers, I worked across gameplay systems, game progression, visual effects, and player interactions. I also helped guide technical development and integrate our team's work using GitHub.
-
-## My Contributions
-
-### Gameplay Systems
-
-I implemented several systems that supported the game's core loop, including:
-
-- **Day progression:** Day timers, day switching, and variable day setups.
-    
-- **Obstacle management:** Obstacle spawning, cleanup between days, and obstacle effects.
-    
-- **Scoring:** A scoring system to track gameplay results.
-    
-- **Player interactions:** A hand-knock ability with an accompanying animation.
-    
-- **Game flow:** Cutscene functionality, fade-in and fade-out transitions, and the end screen.
-    
-- **Gameplay effects:** Randomly spawning boost droplets and visual effects for the window and obstacles.
-
-### Integrating Existing Godot Addons
-
-One of my most challenging contributions was adapting two existing Godot addons to work together:
-
-- [Godot Dialogue Manager](https://github.com/nathanhoad/godot_dialogue_manager)
-- [ACVoicebox](https://github.com/mattmarch/ACVoicebox)
-
-The addons weren't initially compatible with the way our game needed to handle dialogue. I modified Dialogue Manager's scripts to feed dialogue into ACVoicebox and adapted the data being passed between them to support character-by-character speech playback, recreating the style of Animal Crossing's dialogue sounds rather than treating each line as one complete string.
-
-This required me to understand how both addons handled dialogue and audio, identify where their approaches differed, and modify the existing code so the systems could work together. I completed this integration within the limited timeline of a game jam.
-
-This experience strengthened my ability to navigate unfamiliar code, adapt existing tools, and solve integration problems under time constraints—without having to build both systems from scratch.
-
-### Technical Leadership and Collaboration
-
-I was the only team member with prior experience using Godot and GitHub, so I took the lead on technical workflow and helped integrate the team's work.
-
-We met daily to discuss our plans and divide tasks, aiming to minimize overlapping work. I also merged pull requests from teammates' branches into the main project.
-
-This gave me experience coordinating technical work, integrating contributions from multiple developers, and helping a team maintain momentum during a short development cycle.
-
-## Recognition
-
-Our game received strong rankings in the GMTK Game Jam 2026 community ratings.
-
-![GMTK Game Jam ratings showing our rankings across different categories]({{ '/assets/images/GMTK-all-ratings.png' | relative_url }})
-
-![GMTK Game Jam overall rating]({{ '/assets/images/GMTK-overall.png' | relative_url }})
-
-*Rating badges generated using the [GMTK Badge Maker](https://deadrockgames.itch.io/gmtk-badge-maker) by DeadRockGames.*
-
-- **Top 1%:** Creativity, Artwork, and Narrative
-- **Top 2%:** Audio
-- **Top 5%:** Enjoyment
-
-## What I Learned
-
-This project gave me experience working across multiple gameplay systems while collaborating with a team under a tight deadline. Adapting existing addons was particularly valuable because it required me to understand code I hadn't written and make changes that allowed separate systems to work together.
-
-I also gained experience supporting a team's technical workflow, from planning tasks together to integrating contributions through GitHub pull requests.
-
-## Technologies
-
-Godot · GDScript · Git · GitHub · Godot Dialogue Manager · ACVoicebox
+<section class="case-study-next">
+  <p class="eyebrow">EXPLORE ANOTHER PROJECT</p>
+  <h2>Next up: Wild Derby Carnival.</h2>
+  <p>
+    Another game jam project, this time exploring physics-driven gameplay
+    and collaboration in a two-person team.
+  </p>
+  <a class="text-link" href="{{ '/projects/wild-derby-carnival/' | relative_url }}">View Wild Derby Carnival →</a>
+</section>
