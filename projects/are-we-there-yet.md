@@ -61,7 +61,7 @@ func set_timerProgress():
 
 The normalized `0.0` to `1.0` value gives each receiving system a consistent measure of day progress, independent of the timer's duration.
 
-![Day progression showing the transition between different days]({{ '/assets/images/awty-day-progression.gif' | relative_url }})
+![Day progression showing the transition between different days]({{ '/assets/videos/awty-day-progression.gif' | relative_url }})
 
 #### Data-Driven Day Configuration
 
@@ -102,7 +102,7 @@ Essentially, the game trusts that the `race_manager` will clean up after itself 
 
 It's a relatively small detail that most players probably won't consciously notice. However, interrupting a race just because the timer ran out would feel abrupt, especially if the player was watching the final moments of a close race. Accounting for this interaction made the transition between days feel much more natural and polished.
 
-![Race finishing as the day timer expires]({{ '/assets/images/awty-race-day-end.gif' | relative_url }})
+![Race finishing as the day timer expires]({{ '/assets/videos/awty-race-day-end.gif' | relative_url }})
 
 ### Environmental Effects and Visual Progression
 
@@ -141,7 +141,7 @@ I also implemented randomized obstacle scale and rotation to make repeated insta
 
 The frost on these obstacles is a visual effect; it does not change their gameplay behavior.
 
-![Obstacle frost and fade-out effects]({{ '/assets/images/awty-obstacle-effects.gif' | relative_url }})
+![Obstacle frost and fade-out effects]({{ '/assets/videos/awty-obstacle-effects.gif' | relative_url }})
 
 #### World Layers and Parallax Background
 
@@ -171,7 +171,7 @@ I also implemented player-facing systems that connect moment-to-moment interacti
 - **Screen transitions:** Used fade-in and fade-out transitions between gameplay states and days.
 - **End-game flow:** Connected the final day and score handling to the end screen.
 
-![Hand-knock interaction in action]({{ '/assets/images/awty-hand-knock.gif' | relative_url }})
+![Hand-knock interaction in action]({{ '/assets/videos/awty-hand-knock.gif' | relative_url }})
 
 ## Integrating Existing Godot Addons
 
@@ -186,7 +186,7 @@ I investigated how each addon handled dialogue and audio, then modified the Dial
 
 This required tracing behavior through an existing codebase, understanding how two separate tools represented and processed their data, and adapting their interaction without replacing either addon.
 
-![Dialogue with character-by-character voice playback]({{ '/assets/images/awty-dialogue-voice.gif' | relative_url }})
+![Dialogue with character-by-character voice playback]({{ '/assets/videos/awty-dialogue-voice.gif' | relative_url }})
 
 This was more than configuring two plugins. I had to identify where their existing interfaces did not meet our requirements and modify the integration to support the experience we wanted within a game jam's limited development time.
 
