@@ -1,8 +1,3 @@
----
-layout: default
-title: Wild Derby Carnival — Case Study
----
-
 # Wild Derby Carnival
 
 **Wholesome Games Game Jam 2026 · Godot · GDScript · Team of Two**
