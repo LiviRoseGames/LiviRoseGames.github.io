@@ -34,7 +34,7 @@ I implemented the core ball-and-scoring system that connects player input to rac
 
 The challenge was making these pieces work together. A shot needed to feel responsive, but its outcome also had to be communicated clearly to the player and translated consistently into race progress.
 
-![The player flicking to launch a ball]({{ '/assets/images/wdc-ThrowBall.gif' | relative_url }})
+![The player flicking to launch a ball]({{ '/assets/video/wdc-ThrowBall.gif' | relative_url }})
 
 ### Race Progression and AI Opponents
 
@@ -48,7 +48,7 @@ I developed the race system that turns individual scoring shots into a competiti
 
 This required coordinating separate systems for player scoring, AI behavior, horse movement, and victory detection. Each horse needed to progress independently while still participating in the same race.
 
-![The race results animation]({{ '/assets/images/wdc-Win.gif' | relative_url }})
+![The race results animation]({{ '/assets/video/wdc-Win.gif' | relative_url }})
 
 ### Modular Levels and Game Flow
 
@@ -74,7 +74,7 @@ I implemented the interactive horse-selection system and several visual details 
 
 I also consolidated button animations into a reusable component with configurable hover, glow, drop-in, and pop-in effects. This allowed the same animation behavior to be reused throughout the interface without duplicating the implementation for every button.
 
-![The player selecing a horse]({{ '/assets/images/wdc-HorseSelect.gif' | relative_url }})
+![The player selecing a horse]({{ '/assets/video/wdc-HorseSelect.gif' | relative_url }})
 
 ### Audio and Interface Polish
 
