@@ -57,8 +57,6 @@ func set_timerProgress():
 
 The normalized `0.0` to `1.0` value gives each receiving system a consistent measure of day progress, independent of the timer's duration.
 
-![Day progression showing the transition between different days]({{ '/assets/videos/awty-day-progression.gif' | relative_url }})
-
 #### Data-Driven Day Configuration
 
 I created the custom `DayData` resource to keep day-specific configuration separate from the systems that use it.
@@ -84,7 +82,7 @@ To achieve this, each failed chance check increases a shared failure counter, gi
 
 The manager also handles obstacle cleanup between days, calling each obstacle's `clear()` method before the next day's setup. Rather than implementing a separate removal animation for day transitions, I reused the existing cleanup behavior from the smack ability. Each obstacle manages its own removal, fading out its sprite with a short tween before freeing itself.
 
-![Different randomized obstacles appearing on the window]({{ '/assets/videos/awty-obstacle-spawning.gif' | relative_url }})
+![Different randomized obstacles appearing on the window]({{ '/assets/video/awty-obstacle-spawning.gif' | relative_url }})
 
 #### Race and Day-End Synchronization
 
@@ -98,7 +96,7 @@ Essentially, the game trusts that the `race_manager` will clean up after itself 
 
 It's a relatively small detail that most players probably won't consciously notice. However, interrupting a race just because the timer ran out would feel abrupt, especially if the player was watching the final moments of a close race. Accounting for this interaction made the transition between days feel much more natural and polished.
 
-![Race finishing as the day timer expires]({{ '/assets/videos/awty-race-day-end.gif' | relative_url }})
+![Race finishing as the day timer expires]({{ '/assets/video/awty-race-day-end.gif' | relative_url }})
 
 ### Environmental Effects and Visual Progression
 
@@ -264,7 +262,12 @@ This allowed us to keep Dialogue Manager's existing dialogue flow while adding t
 
 This was the final feature I squeezed into the jam as a last-minute "Stretch Goal!" I was especially happy with how it turned out, and thrilled by the positive feedback we received. It really helped tie together the cozy, nostalgic atmosphere we were going for.
 
-![Dialogue with character-by-character voice playback]({{ '/assets/videos/awty-dialogue-voice.mp4' | relative_url }})
+<div style="max-width: 800px; margin: 1.5rem auto;">
+  <video controls width="100%" style="border-radius: 12px;">
+    <source src="{{ '/assets/video/awty-dialogue-voice.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+</div>
 
 ### Technical Collaboration and Workflow
 
