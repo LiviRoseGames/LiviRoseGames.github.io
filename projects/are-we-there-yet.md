@@ -12,31 +12,42 @@
 
 *Are We There Yet?* was developed for GMTK Game Jam 2026 by a four-person team consisting of two programmers and two artists.
 
-As one of the programmers, I was responsible for implementing several of the game's core systems, including day progression, obstacle management, environmental effects, scoring, player interactions, and game flow. I also adapted two existing Godot addons to create our character-by-character dialogue audio system.
+As one of the programmers, I was responsible for implementing several of the game's core systems, including day progression, obstacle management, environmental effects, scoring, player interactions, and game flow. I also adapted two existing Godot addons to create our character-by-character dialogue audio.
 
 I was the only team member with prior experience using Godot and GitHub, so I also took the lead on our technical workflow. This included helping plan implementation, coordinating tasks to reduce conflicts, reviewing incoming changes, and integrating work through GitHub pull requests.
 
 ## My Contributions
 
+- [Gameplay Systems and Day Progression](#gameplay-systems-and-day-progression)
+  - [Coordinating the Day Lifecycle](#coordinating-the-day-lifecycle)
+  - [Data-Driven Day Configuration](#data-driven-day-configuration)
+  - [Randomized Obstacle Management](#randomized-obstacle-management)
+  - [Race and Day-End Synchronization](#race-and-day-end-synchronization)
+
+- [Environmental Effects and Visual Progression](#environmental-effects-and-visual-progression)
+  - [Window Frost Shader](#window-frost-shader)
+  - [Obstacle Visual Effects](#obstacle-visual-effects)
+  - [World Layers and Parallax Background](#world-layers-and-parallax-background)
+  - [Raindrop Simulation](#raindrop-simulation)
+    - [Raindrop Physics and Movement](#raindrop-physics-and-movement)
+    - [Raindrop Trails and Streak Riding](#raindrop-trails-and-streak-riding)
+
+- [Player Interactions and Game Flow](#player-interactions-and-game-flow)
+- [Player Interactions and Game Flow](#player-interactions-and-game-flow)
+- [Godot Addon Integration](#integrating-existing-godot-addons)
+- [Technical Collaboration and Workflow](#technical-collaboration-and-workflow)
+
 ### Gameplay Systems and Day Progression
 
 I implemented systems that connect the game's day timer to its environment, obstacles, dialogue, and race flow. Rather than having each feature manage its own independent timer, the game controller calculates a shared progress value and passes it to the systems that need to respond to the passage of time.
 
-My work in this area included:
-
-- **Day lifecycle:** Managing day initialization, timer state, completion, and transitions between days.
-- **Day configuration:** Using custom `DayData` resources to define environmental themes and obstacle spawn probabilities.
-- **Obstacle management:** Selecting obstacle scenes, generating randomized spawn positions, handling spawn chances, and clearing obstacles between days.
-- **Environmental progression:** Driving visual changes across the window, obstacles, and world using normalized timer progress.
-- **Race synchronization:** Allowing an active race to finish before starting the day-end sequence.
-
 #### Coordinating the Day Lifecycle
 
-The game controller acts as the central coordinator for the day lifecycle. It starts and pauses the timer, tracks whether the day has begun or finished, and calculates normalized progress from the timer's remaining time.
+The game controller acts as the central coordinator for the day lifecycle. It manages the timer, tracks whether the day has started or finished, and calculates normalized progress from the timer's remaining time.
 
-That progress value is distributed to the world, window, and obstacle manager. Each system can then respond to the same point in the day without maintaining a separate timer or duplicating the overall progression logic.
+That progress value is distributed to the `world`, `window`, and `obstacle_manager`. Each system can then respond to the same point in the day without maintaining a separate timer or duplicating the overall progression logic.
 
-The `DayManager` keeps track of the current day and returns its corresponding `DayData` resource. When the day ends, the game controller handles the transition: it fades the screen in, clears the previous day's obstacles, advances the day, initializes the new configuration, and fades back out.
+The `day_manager` keeps track of the current day and returns its corresponding `DayData` resource. When the day ends, the game controller handles the transition: it fades the screen in a black screen, clears the previous day's obstacles, advances the day, initializes the new configuration, and fades the black screen back out.
 
 ```gdscript
 func set_timerProgress():
@@ -48,19 +59,20 @@ func set_timerProgress():
         return 0.0
 ```
 
-I used a normalized value from `0.0` to `1.0` so the receiving systems could interpret progression consistently, regardless of the timer's actual duration.
+The normalized `0.0` to `1.0` value gives each receiving system a consistent measure of day progress, independent of the timer's duration.
 
 ![Day progression showing the transition between different days]({{ '/assets/images/awty-day-progression.gif' | relative_url }})
 
 #### Data-Driven Day Configuration
 
-I used a custom `DayData` resource to keep day-specific configuration separate from the systems that consume it.
+I created the custom `DayData` resource to keep day-specific configuration separate from the systems that use it.
 
-Each resource stores properties such as the background theme, obstacle spawn probability, and ranges intended for raindrop attributes. In the current implementation, the background theme is used to select environmental textures and determine which obstacle type can spawn, while the obstacle manager reads the configured spawn probability.
+Each resource stores properties such as the background theme, obstacle spawn probability, and ranges intended for raindrop attributes. The background theme determines which environmental textures are used and which obstacle type can spawn (leaves in the forest and bird poop at sea), while the obstacle manager reads the configured spawn probability.
 
-This makes day setup editable through Godot's Inspector rather than requiring each day's configuration to be hardcoded into the game logic. The resource also provides a place to extend day-specific behavior as the project grows.
+This approach makes level setup editable through Godot's Inspector rather than requiring each day's configuration to be hardcoded into the game logic. It also makes future game design easier to delegate to another team member unfamiliar with the code, freeing up development time for other features.
 
-One distinction worth noting is that the raindrop attribute ranges are defined in `DayData`, but the raindrop stat generator does not currently read those ranges. The implemented day-specific behavior is the environment selection and obstacle probability.
+I also included more configuration variables than we initially needed. Some became what we affectionately called **"Stretch Goals!"** or features only for if we had an abundance of time, but keeping them in the resource gives the system room to grow. The raindrop attribute ranges, for example, are defined in `DayData` but were not connected
+to the stat generator during the jam's development time.
 
 ![Godot Inspector showing a DayData resource and its exported properties]({{ '/assets/images/awty-daydata-inspector.png' | relative_url }})
 
@@ -68,13 +80,29 @@ One distinction worth noting is that the raindrop attribute ranges are defined i
 
 I implemented the obstacle manager to handle obstacle selection, spawning, and cleanup.
 
-The manager checks the current day's background theme to select an appropriate obstacle scene. For example, a field-themed day can spawn leaves, while a sea-themed day can spawn bird-dropping obstacles. It then chooses a random position inside a defined rectangular spawn area and initializes the obstacle with a randomized scale and rotation.
+The manager checks the current day's background theme to select appropriate obstacles. Each obstacle is built around a shared `window_obstacle` base scene. For the sea levels, I was given multiple bird poop variations, which I organized into an array and randomized during selection. The manager then chooses a random position within a defined rectangular spawn area, instantiates the selected obstacle, and adds it to the scene. Each obstacle handles its own initialization through a `setup()` function, randomizing its scale and rotation within configurable ranges before applying its initial frost effect.
 
-Obstacle spawning is controlled by the probability stored in the active `DayData` resource. The manager works through a configured number of obstacle slots. When a chance check fails, it records the failure and increases the number of checks available for subsequent slots. This gives later slots additional opportunities to spawn an obstacle, while still allowing the final count to vary.
+Obstacle spawning is controlled by the probability stored in the active `DayData` resource. The manager works through a configured number of obstacle slots, with each slot initially receiving one chance to spawn. I wanted to experiment with how failed spawn attempts could influence the overall distribution of obstacles, particularly making completely obstacle-free days relatively rare.
 
-At the end of a day, the manager clears existing obstacles before the next day's setup. Individual obstacles fade their sprites out with a short tween before being freed.
+To achieve this, each failed chance check increases a shared failure counter, giving subsequent slots additional opportunities to spawn an obstacle. This allows the final obstacle count to vary while making empty days less likely, even when the configured spawn probability is low.
 
-![Different randomized obstacles appearing on the window]({{ '/assets/images/awty-obstacle-spawning.gif' | relative_url }})
+The manager also handles obstacle cleanup between days, calling each obstacle's `clear()` method before the next day's setup. Rather than implementing a separate removal animation for day transitions, I reused the existing cleanup behavior from the smack ability. Each obstacle manages its own removal, fading out its sprite with a short tween before freeing itself.
+
+![Different randomized obstacles appearing on the window]({{ '/assets/videos/awty-obstacle-spawning.gif' | relative_url }})
+
+#### Race and Day-End Synchronization
+
+After the initial build was complete, a significant part of bugfixing involved tracking down edge cases. One noteable example was deciding how the game should handle the day timer expiring while a race was still underway.
+
+When the timer runs out, the game marks the day as finished, but doesn't immediately interrupt anything (the timer doesn't even head into the negatives!). If no race is in progress, the day-end sequence can begin right away. However, if a race *is* active, the game lets it finish first.
+
+After processing the race results, the `race_manager` checks whether the day has ended. If it has, it will then start the day-end sequence rather than preparing another set of raindrops.
+
+Essentially, the game trusts that the `race_manager` will clean up after itself if one of its races is ongoing as the timer ends.
+
+It's a relatively small detail that most players probably won't consciously notice. However, interrupting a race just because the timer ran out would feel abrupt, especially if the player was watching the final moments of a close race. Accounting for this interaction made the transition between days feel much more natural and polished.
+
+![Race finishing as the day timer expires]({{ '/assets/images/awty-race-day-end.gif' | relative_url }})
 
 ### Environmental Effects and Visual Progression
 
@@ -131,17 +159,6 @@ The line uses a width curve that tapers toward its end, rounded caps and joints,
 
 ![Raindrop close-up showing the visual trail effect]({{ '/assets/video/awty-raindropzoom.gif' | relative_url }})
 
-### Race and Day-End Synchronization
-
-An important part of the progression system was deciding what should happen if the day timer expires while a race is still active.
-
-When the timer times out, the game marks the day as finished. If no race is underway, it can immediately begin the day-end dialogue and fade the remaining raindrops. If a race is active, the timer does not interrupt it.
-
-Instead, the race manager finishes processing the race results. After the winner is determined and the selected raindrop's result has been handled, the race manager checks the game's day state. If the day has already finished, it starts the day-end dialogue rather than preparing another set of raindrops.
-
-This keeps the flow predictable: the player can watch the current race finish, but the game will not begin another race after the day has ended.
-
-![Race finishing as the day timer expires]({{ '/assets/images/awty-race-day-end.gif' | relative_url }})
 
 ### Player Interactions and Game Flow
 
