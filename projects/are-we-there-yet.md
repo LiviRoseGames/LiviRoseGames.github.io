@@ -26,14 +26,10 @@ I was the only team member with prior experience using Godot and GitHub, so I al
 
 - [Environmental Effects and Visual Progression](#environmental-effects-and-visual-progression)
   - [Window Frost Shader](#window-frost-shader)
-  - [Obstacle Visual Effects](#obstacle-visual-effects)
   - [World Layers and Parallax Background](#world-layers-and-parallax-background)
   - [Raindrop Simulation](#raindrop-simulation)
-    - [Raindrop Physics and Movement](#raindrop-physics-and-movement)
     - [Raindrop Trails and Streak Riding](#raindrop-trails-and-streak-riding)
 
-- [Player Interactions and Game Flow](#player-interactions-and-game-flow)
-- [Player Interactions and Game Flow](#player-interactions-and-game-flow)
 - [Godot Addon Integration](#integrating-existing-godot-addons)
 - [Technical Collaboration and Workflow](#technical-collaboration-and-workflow)
 
@@ -47,7 +43,7 @@ The game controller acts as the central coordinator for the day lifecycle. It ma
 
 That progress value is distributed to the `world`, `window`, and `obstacle_manager`. Each system can then respond to the same point in the day without maintaining a separate timer or duplicating the overall progression logic.
 
-The `day_manager` keeps track of the current day and returns its corresponding `DayData` resource. When the day ends, the game controller handles the transition: it fades the screen in a black screen, clears the previous day's obstacles, advances the day, initializes the new configuration, and fades the black screen back out.
+The `day_manager` keeps track of the current day and returns its corresponding `DayData` resource. When the day ends, the game controller handles the transition: it fades to black, clears the previous day's obstacles, advances the day, initializes the new configuration, and fades back in.
 
 ```gdscript
 func set_timerProgress():
@@ -92,7 +88,7 @@ The manager also handles obstacle cleanup between days, calling each obstacle's 
 
 #### Race and Day-End Synchronization
 
-After the initial build was complete, a significant part of bugfixing involved tracking down edge cases. One noteable example was deciding how the game should handle the day timer expiring while a race was still underway.
+After the initial build was complete, a significant part of bugfixing involved tracking down edge cases. One notable example was deciding how the game should handle the day timer expiring while a race was still underway.
 
 When the timer runs out, the game marks the day as finished, but doesn't immediately interrupt anything (the timer doesn't even head into the negatives!). If no race is in progress, the day-end sequence can begin right away. However, if a race *is* active, the game lets it finish first.
 
@@ -106,15 +102,13 @@ It's a relatively small detail that most players probably won't consciously noti
 
 ### Environmental Effects and Visual Progression
 
-I implemented several visual systems that respond to the passage of time. The game controller calculates normalized day progress and passes it to the world, window, and obstacle manager.
-
-Although these systems share one progress value, each effect uses its own progression curve. This lets the environment change in a coordinated way without making every visual effect fade at the same rate.
+I implemented several visual systems that respond to the passage of time. The game controller distributes the same normalized day progress to the `world`, `window`, and `obstacle_manager`, while each effect uses its own progression curve.
 
 #### Window Frost Shader
 
-The window shader simulates frost by combining randomized screen-space distortion, multiple screen texture samples for a subtle blur, and a white tint.
+The window shader simulates frost using randomized screen-space distortion, multiple screen texture samples for a subtle blur, and a white tint.
 
-The shader exposes a `frostAmount` uniform that scales the strength of all three effects. As the day progresses, the window script reduces this value using a cubic curve:
+A `frostAmount` uniform controls the strength of all three effects. As the day progresses, the window script reduces this value using a cubic curve to simulate it melting away as the sun *dries up all the rain*:
 
 ```gdscript
 func set_dayProgress(progress):
@@ -129,74 +123,156 @@ func set_dayProgress(progress):
     )
 ```
 
-Using a cubic curve means the frost does not clear at a constant rate. It remains more prominent earlier in the day, then clears more noticeably as the day approaches completion.
+A cubic curve was my function of choice because it keeps the frost more prominent earlier in the day, then clears it more noticeably as the sun appears and the day approaches completion.
+
+Obstacles use a separate, much simpler frost shader. Rather than sampling the screen or introducing distortion, it blends each obstacle's original color toward a subtle gray tint. The tint strength is controlled by the same frostAmount concept, allowing obstacles to visually match the frosted environment without obscuring their artwork.
+
+Their frost also decreases at a different rate, using a quadratic curve rather than the cubic curve applied to the window. This allows both effects to respond to the same shared day progress value while maintaining their own visual progression.
+
+The frost on obstacles is purely visual and does not affect their gameplay behavior.
 
 ![Window frost changing over the course of a day]({{ '/assets/video/awty-frost.gif' | relative_url }})
 
-#### Obstacle Visual Effects
-
-Obstacles have their own frost shader and progression logic. Their frost amount decreases using a quadratic curve, so they visually clear at a different rate from the main window.
-
-I also implemented randomized obstacle scale and rotation to make repeated instances feel less uniform. When an obstacle is cleared, its sprite fades out through a short tween before the node is freed.
-
-The frost on these obstacles is a visual effect; it does not change their gameplay behavior.
-
-![Obstacle frost and fade-out effects]({{ '/assets/videos/awty-obstacle-effects.gif' | relative_url }})
-
 #### World Layers and Parallax Background
 
-The world controller updates several environmental layers using the shared day progress value. Sunlit background elements fade in while fog fades out, gradually changing the atmosphere as the day advances. The active `DayData` resource also determines which sky, background, and foreground textures are loaded.
+The world controller uses day progress to animate environmental layers. Sunlit background elements fade in while fog fades out, gradually changing the atmosphere as the day advances. The active `DayData` resource also determines which sky, background, and foreground textures are loaded.
 
-The project also uses a parallax background to give the environment a sense of depth. This separates the background presentation from the day-state logic: the world can change its theme and lighting while the layered background adds movement.
+The parallax background adds depth and movement to the environment, independently of the day-state changes.
 
 ![Parallax background movement]({{ '/assets/video/awty-parallax-bg.gif' | relative_url }})
 
-#### Raindrop Trails
+#### Raindrop Simulation
+
+Both programmers collaborated heavily on the raindrop movement system, discussing and refining different strategies. We wanted the drops to feel like they were moving across a window rather than simply falling in a straight line, with individual drops able to behave differently and interact with one another. It felt vital to the nostalgic childhood wonder we wanted to bring to the game that the raindrops felt a bit unpredictable and lifelike. We implemented the resulting movement simulation using Godot's `RigidBody2D` physics system, combining custom forces and behaviors to create that variation.
+
+Gravity pulls raindrops down the window, while drag opposes their velocity to limit acceleration. To make movement less uniform, we used `FastNoiseLite` to introduce gradual sideways variation. Each raindrop receives its own noise seed, giving it a slightly different path as it travels down the window.
+
+The movement simulation combines these forces during each physics update. Noise gradually changes the direction of the sideways force, while an acceleration ramp lets raindrops build up speed over time.
+
+```gdscript
+#Simplified excerpt from _integrate_forces()
+
+var downward_force = Vector2.DOWN * gravity_force * mass \
+    * (size_factor / 1.5) * acceleration_multiplier * acceleration_ramp
+
+var horizontal_force = Vector2.RIGHT * sideways_direction \
+    * sideways_force * mass
+
+var drag_force = -state.linear_velocity * drag_strength \
+    * mass * acceleration_multiplier
+
+var total_force = downward_force + horizontal_force + drag_force
+apply_central_force(total_force)
+```
+
+Raindrop properties also influence their movement. Size affects mass and gravitational pull, while generated stats modify acceleration and maximum speed. As raindrops accelerate, their sprites stretch vertically to visually communicate their speed without changing their collision shapes.
+
+```gdscript
+#Sprite stretch based on current speed
+
+var speed_ratio = clampf(
+    linear_velocity.length() / (get_weight_multiplier() * maximum_speed),
+    0.0,
+    1.0
+)
+
+var stretch_amount = speed_ratio * maximum_stretch
+
+var target_scale = Vector2(
+    1.0 - stretch_amount * 0.5,
+    1.0 + stretch_amount
+)
+```
+
+We also wanted raindrops to be able to interact and grow as they traveled. I implemented collision-based merging, where the larger raindrop absorbs the smaller one, combining their mass, size, movement, and stats. This means that merging can change how a raindrop behaves as it continues down the window.
+
+```gdscript
+#Simplified excerpt from absorb_drop()
+
+var combined_velocity = (
+    linear_velocity * mass
+    + other.linear_velocity * other.mass
+) / (mass + other.mass)
+
+radius = sqrt(radius * radius + other.radius * other.radius)
+
+for stat in stats:
+    stats[stat] = max(stats[stat], other.stats[stat]) \
+        + roundi(min(stats[stat], other.stats[stat]) * 0.5)
+
+linear_velocity = combined_velocity
+update_drop_size()
+```
+
+![GMTK Game Jam ratings showing our rankings across different categories]({{ '/assets/images/awty-raindrop-stats.png' | relative_url }})
+
+##### Raindrop Trails and Streak Riding
 
 I implemented the raindrop trail effect using a `Line2D` created for each raindrop. During physics updates, the script samples the raindrop's position and appends points to the trail after it has moved far enough. The trail is added to a shared streak container, with each sampled point converted into that container's local coordinate space.
 
 The line uses a width curve that tapers toward its end, rounded caps and joints, partial transparency, and a shader that adds a subtle highlight. Together, these details make the trail read as a thin water streak rather than a uniform line.
 
+```gdscript
+#Adding a point to a raindrop's trail
+
+func add_streak_point():
+    if streak.get_point_count() == 0:
+        streak.add_point(streak.to_local(global_position))
+        return
+
+    var last_point = streak.get_point_position(
+        streak.get_point_count() - 1
+    )
+
+    var current_point = streak.to_local(global_position)
+
+    if last_point.distance_to(current_point) >= streak_minDistance:
+        streak.add_point(current_point)
+```
+
+We also discussed how raindrops could interact with the trails left behind by other drops. I implemented a system that allows raindrops to detect and travel along existing trails. When a raindrop comes close enough to another raindrop's streak, it can attach to the trail and follow its path instead of continuing its normal physics-driven movement.
+
+While riding a streak, raindrops periodically attempt to break away. Their escape probability increases over time, with the friendliness statthe friendliness stat, which was later renamed "magnetism" in the player-facing UI, influencing how quickly that chance grows. Once they escape, they resume sliding with momentum in the direction of the trail, potentially creating new branching paths for other raindrops to follow.
+
+```gdscript
+#Simplified excerpt from attempt_streak_escape()
+
+if randf() <= current_escape_chance:
+    stop_streak_riding(true)
+else:
+    current_escape_chance = minf(
+        current_escape_chance
+            + escape_chance_increase / get_friendliness_multiplier(),
+        maximum_escape_chance
+    )
+```
+
 ![Raindrop close-up showing the visual trail effect]({{ '/assets/video/awty-raindropzoom.gif' | relative_url }})
 
-
-### Player Interactions and Game Flow
-
-I also implemented player-facing systems that connect moment-to-moment interactions with the larger game flow.
-
-- **Hand-knock ability:** Implemented the interaction, animation, and visual feedback.
-- **Scoring:** Implemented the score handling for race results, awarding points according to the selected raindrop's finishing position.
-- **Boost droplets:** Worked on randomly spawned gameplay pickups and their associated effects.
-- **Dialogue and cutscenes:** Connected dialogue playback to day progression, including day-start and day-end sequences.
-- **Screen transitions:** Used fade-in and fade-out transitions between gameplay states and days.
-- **End-game flow:** Connected the final day and score handling to the end screen.
-
-![Hand-knock interaction in action]({{ '/assets/videos/awty-hand-knock.gif' | relative_url }})
-
-## Integrating Existing Godot Addons
+### Integrating Existing Godot Addons
 
 One of the more technically challenging parts of the project was adapting two existing Godot addons to work together:
 
 - [Godot Dialogue Manager](https://github.com/nathanhoad/godot_dialogue_manager)
 - [ACVoicebox](https://github.com/mattmarch/ACVoicebox)
 
-We wanted dialogue to have the character-by-character audio style associated with *Animal Crossing*, rather than playing one complete sound for an entire dialogue line. The addons did not provide this integration out of the box.
+We wanted dialogue to have the character-by-character audio style associated with *Animal Crossing*, rather than playing a single sound for an entire dialogue line. Neither addon supported this integration out of the box.
 
-I investigated how each addon handled dialogue and audio, then modified the Dialogue Manager scripts and the data passed between the systems so dialogue could trigger ACVoicebox playback character by character.
+I investigated how each addon handled dialogue and audio, then modified both systems to connect them. I adapted `ACVoiceBox` to parse complete dialogue strings into individual characters and queue their corresponding sounds for sequential playback. I also modified the Dialogue Manager balloon to pass each dialogue line to the voice system, adjust the voice's base pitch according to the speaking character, and coordinate audio playback with the dialogue's typewriter effect.
 
-This required tracing behavior through an existing codebase, understanding how two separate tools represented and processed their data, and adapting their interaction without replacing either addon.
+This allowed us to keep Dialogue Manager's existing dialogue flow while adding the character-specific voice playback we wanted. Rather than replacing either addon, I extended their existing functionality to support a feature they weren't originally designed to provide.
 
-![Dialogue with character-by-character voice playback]({{ '/assets/videos/awty-dialogue-voice.gif' | relative_url }})
+This was the final feature I squeezed into the jam as a last-minute "Stretch Goal!" I was especially happy with how it turned out, and thrilled by the positive feedback we received. It really helped tie together the cozy, nostalgic atmosphere we were going for.
 
-This was more than configuring two plugins. I had to identify where their existing interfaces did not meet our requirements and modify the integration to support the experience we wanted within a game jam's limited development time.
+![Dialogue with character-by-character voice playback]({{ '/assets/videos/awty-dialogue-voice.mp4' | relative_url }})
 
-## Technical Collaboration and Workflow
+### Technical Collaboration and Workflow
 
 I was the only team member with prior experience using Godot and GitHub, so I took the lead on maintaining the team's technical workflow.
 
-We met daily to discuss progress, plan upcoming tasks, and divide work in a way that minimized conflicts and overlapping implementation. I reviewed and merged teammates' pull requests from their branches into the main project, helping keep the shared project integrated as work progressed.
+We met daily to discuss progress, plan upcoming tasks, and divide work in a way that minimized conflicts and overlapping implementation. I reviewed and merged teammates' pull requests into the main project, keeping everyone's work integrated as development progressed.
 
-Working with two programmers and two artists meant that technical implementation and creative work needed to stay coordinated. I gained experience communicating implementation needs, integrating work produced by other team members, and keeping development moving under a short deadline.
+Being on a team with two programmers and two artists also meant keeping technical implementation and creative work aligned. I gained experience communicating implementation needs, integrating teammates' work, and keeping development moving under a short deadline.
 
 ## Recognition
 
@@ -211,16 +287,6 @@ Our game received strong rankings in the GMTK Game Jam 2026 community ratings.
 - **Top 1%:** Creativity, Artwork, and Narrative
 - **Top 2%:** Audio
 - **Top 5%:** Enjoyment
-
-## What I Learned
-
-This project gave me experience designing and implementing connected gameplay systems as part of a collaborative team. I worked across progression, obstacle management, environmental effects, player interactions, and game flow, which meant considering how changes in one system affected the others.
-
-The day progression system was especially useful experience in coordinating shared state. A single normalized progress value could drive multiple visual effects, while the day manager and race manager coordinated changes to the broader game lifecycle.
-
-Integrating Dialogue Manager with ACVoicebox strengthened my ability to navigate unfamiliar code, understand existing APIs, and adapt third-party tools to meet a project's requirements.
-
-Beyond implementation, I gained experience coordinating technical work, reviewing and integrating pull requests, and collaborating with artists and another programmer to deliver a complete game within a game jam deadline.
 
 ## Technologies
 
