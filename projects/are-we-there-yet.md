@@ -290,7 +290,3 @@ Our game received strong rankings in the GMTK Game Jam 2026 community ratings.
 - **Top 1%:** Creativity, Artwork, and Narrative
 - **Top 2%:** Audio
 - **Top 5%:** Enjoyment
-
-## Technologies
-
-Godot · GDScript · Git · GitHub · Godot Dialogue Manager · ACVoicebox
