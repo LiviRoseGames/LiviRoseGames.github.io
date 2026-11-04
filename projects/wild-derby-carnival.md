@@ -16,11 +16,75 @@ I handled the programming in Godot using GDScript, while my teammate, Bosco, cre
 
 ## My Contributions
 
+- [Code Architecture](#code-architecture)
+  - [Modular Level Design and Game Flow](#modular-level-design-and-game-flow)
+  - [Reusable Button Component](#reusable-button-component)
+  - [Shared Animation Library](#shared-animation-library)
+  - [Refining the Player Experience](#refining-the-player-experience)
 - [Physics-Based Gameplay and Controls](#physics-based-gameplay-and-controls)
+  - [Flick-Based Controls](#flick-based-controls)
+  - [Ball Physics and Spin](#ball-physics-and-spin)
+  - [Ball State Management](#ball-state-management)
+  - [Procedural Motion Trails](#procedural-motion-trails)
+  - [Additional Gameplay Feedback](#additional-gameplay-feedback)
 - [Race Progression and AI Opponents](#race-progression-and-ai-opponents)
-- [Modular Levels and Game Flow](#modular-levels-and-game-flow)
+  - [Horse Movement and Race Progression](#horse-movement-and-race-progression)
+  - [AI Opponents and Difficulty](#ai-opponents-and-difficulty)
+  - [Race Setup and Completion](#race-setup-and-completion)
+  - [Victory Animation](#victory-animation)
 - [Horse Selection and Presentation](#horse-selection-and-presentation)
-- [Audio and Interface Polish](#audio-and-interface-polish)
+
+### Code Architecture
+
+After the original game jam submission, I continued refining the project beyond its initial prototype. As the number of scenes, menus, and interactions grew, I focused on making the codebase more consistent and reducing duplicated logic.
+
+#### Modular Level Design and Game Flow
+
+One of the architectural decisions I'm particularly proud of was designing the level system around reusable, configurable building pieces. Rather than hardcoding individual levels, I created components that could be assembled and customized directly in the Godot editor.
+
+- **Scoring holes:** Exported variables allowed their colors and corresponding point values to be configured in the Inspector.
+- **Obstacle pieces:** Reusable obstacle scenes exposed configuration options, including dropdowns for selecting their movement behavior and direction.
+- **Level composition:** These pieces could be arranged and configured independently, making it easier to create different layouts without changing the underlying gameplay code.
+
+This approach also made collaboration much easier! Because the building pieces exposed the options needed for level design, Bosco could take the lead on creating and arranging levels without having to work directly with the gameplay implementation. That freed me to focus on other systems while we worked on different parts of the game in parallel.
+
+The result was a more flexible level architecture and a workflow that allowed both of us to contribute independently.
+
+![Different level pieces in the Inspector]({{ '/assets/video/wdc-LevelPieces.gif' | relative_url }})
+
+#### Reusable Button Component
+
+I created a custom `CustomButton` class extending Godot's `TextureButton`. Instead of implementing hover and entrance animations separately for every button, I built a reusable component with exported settings that allow each instance to enable and configure its own effects.
+
+Supported behaviors include:
+
+- Hover scaling with configurable size and duration.
+- Shader-based hover glow with adjustable color and intensity.
+- Drop-in entrance animations.
+- Pop-in entrance animations.
+- Optional hidden initial states and controlled visibility.
+
+The component also centralizes button hover and click sound effects. By exposing these behaviors as configurable properties, I could reuse the same class throughout the interface while allowing individual buttons to have different presentation styles.
+
+#### Shared Animation Library
+
+To further reduce duplicated animation logic, I created `GameAnimations`, a static utility library built around Godot's Tween system.
+
+Rather than recreating common tween configurations throughout the project, I centralized reusable operations such as scaling, movement, fading, and entrance animations. Each method accepts configurable durations and, where appropriate, transition and easing types.
+
+The custom button component uses this library for its scale, drop-in, and pop-in effects. This separates the definition of common animation behavior from the controls that use it, making the presentation easier to maintain and adjust consistently.
+
+#### Refining the Player Experience
+
+Alongside these architectural improvements, I continued refining the overall experience:
+
+- Integrated sound effects throughout the updated game architecture.
+- Added variation to repeated collision sounds through randomized pitch and volume.
+- Refined tutorial layouts, button behavior, and the final tutorial step.
+- Coordinated introductory animations with game loading and scene transitions.
+- Addressed gameplay edge cases involving ball states, missed shots, and level loading.
+
+These changes helped bring the different parts of the project together, improving both the consistency of the player experience and the maintainability of the underlying code.
 
 ### Physics-Based Gameplay and Controls
 
@@ -181,44 +245,6 @@ Each horse independently detects mouse hover and selection through its `Selectio
 I also implemented randomized horse appearances using compatible body and head texture variants, along with independently randomized face textures and tarp colors. To make the selection screen more playful, I created a collection of animated name styles using `RichTextLabel` effects. Names and text styles are tracked to reduce repetition between horses.
 
 ![The player selecting a horse]({{ '/assets/video/wdc-HorseSelect.gif' | relative_url }})
-
-### Code Architecture and Interface Polish
-
-After the original game jam submission, I continued refining the project beyond its initial prototype. As the number of scenes, menus, and interactions grew, I focused on making the codebase more consistent and reducing duplicated logic.
-
-#### Reusable Button Component
-
-I created a custom `CustomButton` class extending Godot's `TextureButton`. Instead of implementing hover and entrance animations separately for every button, I built a reusable component with exported settings that allow each instance to enable and configure its own effects.
-
-Supported behaviors include:
-
-- Hover scaling with configurable size and duration.
-- Shader-based hover glow with adjustable color and intensity.
-- Drop-in entrance animations.
-- Pop-in entrance animations.
-- Optional hidden initial states and controlled visibility.
-
-The component also centralizes button hover and click sound effects. By exposing these behaviors as configurable properties, I could reuse the same class throughout the interface while allowing individual buttons to have different presentation styles.
-
-#### Shared Animation Library
-
-To further reduce duplicated animation logic, I created `GameAnimations`, a static utility library built around Godot's Tween system.
-
-Rather than recreating common tween configurations throughout the project, I centralized reusable operations such as scaling, movement, fading, and entrance animations. Each method accepts configurable durations and, where appropriate, transition and easing types.
-
-The custom button component uses this library for its scale, drop-in, and pop-in effects. This separates the definition of common animation behavior from the controls that use it, making the presentation easier to maintain and adjust consistently.
-
-#### Refining the Player Experience
-
-Alongside these architectural improvements, I continued refining the overall experience:
-
-- Integrated sound effects throughout the updated game architecture.
-- Added variation to repeated collision sounds through randomized pitch and volume.
-- Refined tutorial layouts, button behavior, and the final tutorial step.
-- Coordinated introductory animations with game loading and scene transitions.
-- Addressed gameplay edge cases involving ball states, missed shots, and level loading.
-
-These changes helped bring the different parts of the project together, improving both the consistency of the player experience and the maintainability of the underlying code.
 
 ## Collaboration and Development Workflow
 
