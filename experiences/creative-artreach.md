@@ -60,32 +60,63 @@ When introducing block-based programming, I wanted everyone to start with the sa
 
 Other lessons gave students much more freedom to explore and solve problems creatively through building. I was constantly surprised by their creativity and ingenuity, especially when they came up with solutions I hadn't anticipated.
 
-{% assign robotics_images = "01,02,03,04,05,06,07,08,09" | split: "," %}
-
-{% capture captions %}
-I was always amazed by their creativity!
-|The first car build completed during my first lesson!
-|A mechanical arm that could pick things up with a magnet!
-|I loved starting students with "build an animal" and seeing all their adorable creations.
-|Testing out their cars
-|Programming practice
-|Setting up the field
-|More car testing!
-|The cars were always a favorite
-{% endcapture %}
-
-{% assign captions = captions | strip | split: "|" %}
-
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-        {% for number in robotics_images %}
-        <figure class="carousel-slide {% if forloop.first %}active{% endif %}">
-            <img
-                src="{{ '/assets/images/robotics/robotics-' | append: number | append: '.jpg' | relative_url }}"
-                alt="{{ captions[forloop.index0] }}">
-            <figcaption>{{ captions[forloop.index0] }}</figcaption>
+
+        <figure class="carousel-slide active">
+            <img src="{{ '/assets/images/robotics/robotics-01.jpg' | relative_url }}"
+                 alt="Students' creative robotics builds">
+            <figcaption>I was always amazed by their creativity!</figcaption>
         </figure>
-        {% endfor %}
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-02.jpg' | relative_url }}"
+                 alt="The first car build from my first lesson">
+            <figcaption>The first car build completed during my first lesson!</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-03.jpg' | relative_url }}"
+                 alt="A robotic arm with a magnetic attachment">
+            <figcaption>A mechanical arm that could pick things up with a magnet!</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-04.jpg' | relative_url }}"
+                 alt="Student-created animal robots">
+            <figcaption>I loved starting students with "build an animal" and seeing all their adorable creations.</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-05.jpg' | relative_url }}"
+                 alt="Students testing their robotic cars">
+            <figcaption>Testing out their cars</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-06.jpg' | relative_url }}"
+                 alt="Students practicing robot programming">
+            <figcaption>Programming practice</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-07.jpg' | relative_url }}"
+                 alt="Robotics competition field setup">
+            <figcaption>Setting up the field</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-08.jpg' | relative_url }}"
+                 alt="Students testing their robotic cars">
+            <figcaption>More car testing!</figcaption>
+        </figure>
+
+        <figure class="carousel-slide">
+            <img src="{{ '/assets/images/robotics/robotics-09.jpg' | relative_url }}"
+                 alt="Students' completed robotic cars">
+            <figcaption>The cars were always a favorite</figcaption>
+        </figure>
+
     </div>
 
     <div class="carousel-controls">
