@@ -93,7 +93,8 @@ My interests extend beyond programming. I've spent time teaching science and rob
 
 You can read more about my background and the experiences that have shaped my work here:
 
-- [My Experience]({{ '/experience/' | relative_url }}) — My time with FIRST Robotics Competition and Creative ArtReach.
+- [Creative ArtReach]({{ 'experiences/creative-artreach.md' | relative_url }}) — Creating and leading science and robotics enrichment programs.
+- [FIRST Robotics Competition]({{ 'experiences/frc.md' | relative_url }}) — My experience with competitive robotics and teamwork.
 - [About Me]({{ '/about/' | relative_url }}) — My education, interests, recognition, and approach to development.
 
 ---
