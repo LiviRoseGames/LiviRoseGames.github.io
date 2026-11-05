@@ -14,6 +14,10 @@
 
 I handled the programming in Godot using GDScript, while my teammate, Bosco, created the artwork. We built the initial version during the 48-hour jam, then used the additional editing week to expand the game and refine its architecture, controls, presentation, and audio.
 
+- [My Contributions](#my-contributions)
+- [Collaboration and Development Workflow](#collaboration-and-development-workflow)
+- [Takeaways](#takeaways)
+
 ## My Contributions
 
 - [Code Architecture](#code-architecture)
@@ -253,3 +257,13 @@ This was a two-person project, with Bosco handling the artwork and me handling t
 Working with an artist I had met through the *Are We There Yet?* team also gave me an opportunity to apply what I had learned in the art courses I took. Having a better understanding of visual design helped me communicate implementation needs, discuss how artwork would fit into the game, and collaborate on the presentation of the finished experience.
 
 As the project grew beyond its original game jam scope, I continued refining the codebase to support new features while keeping the game's systems organized and reusable.
+
+## Takeaways
+
+One of my big goals for this jam was pushing myself to think more about modular design and building with future development in mind. I wanted to get better at creating reusable building blocks rather than just implementing whatever was needed to get the current feature working. That meant avoiding repeated code, separating responsibilities between systems, and exposing configurable properties so I could adjust behavior without constantly revisiting the underlying implementation.
+
+I got to put that into practice in several parts of the project. Creating reusable level pieces made it possible for Bosco to build and arrange levels independently of the gameplay code. The custom button component and shared animation library also gave me a foundation I could reuse throughout the interface instead of recreating similar behaviors for every new screen or interaction.
+
+I particularly enjoyed seeing how these decisions became more valuable as the project grew beyond the original 48-hour jam. Features that might have required more work if everything had been hardcoded could instead build on systems I had already established. It reinforced for me that good architecture isn't just about making code look organized; it's about making future changes and additions easier.
+
+Overall, this project gave me a chance to practice thinking beyond the immediate feature and considering how the pieces of a game fit together. I want to continue developing that skill, especially as I work on larger projects where maintainability and flexibility become increasingly important.

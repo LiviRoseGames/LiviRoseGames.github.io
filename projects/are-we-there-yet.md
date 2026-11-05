@@ -16,6 +16,10 @@ As one of the programmers, I was responsible for implementing several of the gam
 
 I was the only team member with prior experience using Godot and GitHub, so I also took the lead on our technical workflow. This included helping plan implementation, coordinating tasks to reduce conflicts, reviewing incoming changes, and integrating work through GitHub pull requests.
 
+- [My Contributions](#my-contributions)
+- [Recognition](#recognition)
+- [Takeaways](#takeaways)
+
 ## My Contributions
 
 - [Gameplay Systems and Day Progression](#gameplay-systems-and-day-progression)
@@ -290,3 +294,14 @@ Our game received strong rankings in the GMTK Game Jam 2026 community ratings.
 - **Top 1%:** Creativity, Artwork, and Narrative
 - **Top 2%:** Audio
 - **Top 5%:** Enjoyment
+
+## Takeaways
+
+A huge goal of mine for this jam was putting myself out there and meeting other developers to collaborate with. I knew from past experiences in team environments that I'm at my best when I feel that others are relying on me. Having teammates who were counting on my contributions gave me a sense of responsibility and motivation that I had genuinely missed.
+
+One of my favorite parts of the jam was our initial brainstorming session. Ideas flowed so naturally, and we were able to build on each other's suggestions until we settled on the absolutely adorable concept of racing raindrops on a car window. I particularly enjoyed how different the experience was from working independently. Rather than becoming attached to one half-baked idea and struggling to abandon it because of the time already invested, we were able to explore possibilities, build on the strongest ones, and make decisions together.
+
+I also came away with a greater appreciation for the balance between creative collaboration and technical coordination. Being the only team member with prior Godot and GitHub experience meant I had to take responsibility for keeping the technical side organized while still making room for everyone else's contributions. I enjoyed being able to support the team in that capacity, and seeing how our different skills came together in the finished game reinforced just how much I enjoy collaborative development.
+
+Ultimately, this jam reminded me that I don't just enjoy making games; I really enjoy making games *with other people*. It made me want to seek out more opportunities to collaborate, meet other developers, and be part of teams working toward a shared creative goal.
+
