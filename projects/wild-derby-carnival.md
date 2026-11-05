@@ -8,6 +8,8 @@
 
 ![Wild Derby Carnival game title card]({{ '/assets/images/wild-derby-carnival.jpg' | relative_url }})
 
+---
+
 ## Overview
 
 *Wild Derby Carnival* was developed for Wholesome Games Game Jam 2026 in collaboration with an artist. Inspired by tabletop carnival horse-racing games, the project started as a simple ball-and-scoring prototype and grew into a multi-level racing game featuring horse selection, AI opponents, moving obstacles, animated interfaces, and a complete game flow.
@@ -17,6 +19,8 @@ I handled the programming in Godot using GDScript, while my teammate, Bosco, cre
 - [My Contributions](#my-contributions)
 - [Collaboration and Development Workflow](#collaboration-and-development-workflow)
 - [Takeaways](#takeaways)
+
+---
 
 ## My Contributions
 
@@ -250,6 +254,8 @@ I also implemented randomized horse appearances using compatible body and head t
 
 ![The player selecting a horse]({{ '/assets/video/wdc-HorseSelect.gif' | relative_url }})
 
+---
+
 ## Collaboration and Development Workflow
 
 This was a two-person project, with Bosco handling the artwork and me handling the programming. I used Git and GitHub to organize development through feature branches and pull requests, keeping changes manageable as the project expanded.
@@ -257,6 +263,8 @@ This was a two-person project, with Bosco handling the artwork and me handling t
 Working with an artist I had met through the *Are We There Yet?* team also gave me an opportunity to apply what I had learned in the art courses I took. Having a better understanding of visual design helped me communicate implementation needs, discuss how artwork would fit into the game, and collaborate on the presentation of the finished experience.
 
 As the project grew beyond its original game jam scope, I continued refining the codebase to support new features while keeping the game's systems organized and reusable.
+
+---
 
 ## Takeaways
 

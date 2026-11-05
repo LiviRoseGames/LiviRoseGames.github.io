@@ -76,6 +76,8 @@ I sketched out the interface and planned how users would navigate between supply
 
 The finished application retained much of the original layout and organization. Although the interface was still a prototype rather than a polished commercial product, it accomplished what I had set out to do: bring several useful workflows together in one place and make my coworkers' (and admittedly, my own) lives a little easier!
 
+---
+
 ## Application Features
 
 ### Home Page
@@ -135,6 +137,8 @@ Unlike Find a Project, this page doesn't filter projects based on available inve
 ![Implemented View All Projects page]({{ '/assets/images/Inventory-Manager/IM_vap.png' | relative_url }})
 
 *Implemented project database and supply calculator.*
+
+---
 
 ## Implementation
 
@@ -286,6 +290,8 @@ Finally, `File.WriteAllText()` writes the reconstructed data back to the origina
 
 This allowed staff to edit supply quantities directly through the application and save their changes without needing to open or manually modify the CSV files.
 
+---
+
 ## Deployment and Results
 
 I introduced the application at my local Creative ArtReach site, where it could be incorporated into the existing supply-management and project-planning workflow.
@@ -293,6 +299,8 @@ I introduced the application at my local Creative ArtReach site, where it could 
 My original goal was to expand the application to all Creative ArtReach sites. I had plans for a broader rollout, but moved out of state before I could reach that stage.
 
 Even so, taking the project from a paper sketch to a working application introduced to its intended users was a meaningful accomplishment. It was especially rewarding to develop a solution to a problem I had experienced firsthand and receive encouraging feedback from the people it was designed to help.
+
+---
 
 ## What I Learned
 
@@ -303,6 +311,8 @@ One of my biggest learning experiences was working with CSV data. I had to figur
 I also gained experience designing an application around the needs of its actual users. Rather than building a complicated management system, I needed to create something straightforward enough for staff to incorporate into their existing routines.
 
 Ultimately, this project helped me see how software development can extend beyond programming exercises and personal projects. I identified a need, designed an interface, worked through the technical challenges, and produced an application with a practical purpose for the people I worked with.
+
+---
 
 ## Technologies
 

@@ -8,6 +8,8 @@
 
 ![Are We There Yet? game title card]({{ '/assets/images/are-we-there-yet.jpg' | relative_url }})
 
+---
+
 ## Overview
 
 *Are We There Yet?* was developed for GMTK Game Jam 2026 by a four-person team consisting of two programmers and two artists.
@@ -19,6 +21,8 @@ I was the only team member with prior experience using Godot and GitHub, so I al
 - [My Contributions](#my-contributions)
 - [Recognition](#recognition)
 - [Takeaways](#takeaways)
+
+---
 
 ## My Contributions
 
@@ -281,6 +285,8 @@ We met daily to discuss progress, plan upcoming tasks, and divide work in a way 
 
 Being on a team with two programmers and two artists also meant keeping technical implementation and creative work aligned. I gained experience communicating implementation needs, integrating teammates' work, and keeping development moving under a short deadline.
 
+---
+
 ## Recognition
 
 Our game received strong rankings in the GMTK Game Jam 2026 community ratings.
@@ -294,6 +300,8 @@ Our game received strong rankings in the GMTK Game Jam 2026 community ratings.
 - **Top 1%:** Creativity, Artwork, and Narrative
 - **Top 2%:** Audio
 - **Top 5%:** Enjoyment
+
+---
 
 ## Takeaways
 

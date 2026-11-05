@@ -5,44 +5,46 @@ title: Home
 
 # Livi Rose
 
-### Software Developer · Game Developer · Creative Problem Solver
+### Computer Science Student · Software Developer · Game Developer
 
-I’m a Computer Science student interested in building software that feels intuitive to use and enjoyable to interact with.
+I'm a Computer Science student at California State University, Channel Islands, with a love for making things that are both useful and enjoyable. Whether I'm developing a game, building an application, or experimenting with a new idea, I enjoy bringing creativity and problem-solving together.
 
-My work spans game development, gameplay systems, and practical applications designed to solve real problems. I enjoy combining technical problem-solving with creative design to make tools and experiences that work well for the people using them.
+I'm especially interested in game development and software engineering opportunities where I can learn, collaborate, and contribute to projects I'm excited about.
 
-[Explore My Projects](#featured-projects) · [View My Itch.io](https://livirosegames.itch.io/) · [Résumé]({{ '/assets/documents/resume.pdf' | relative_url }})
+[Explore My Projects](#featured-projects) · [Itch.io](https://livirosegames.itch.io/) · [Résumé]({{ '/assets/documents/resume.pdf' | relative_url }})
 
 ---
 
-<h2 id="featured-projects">Featured Projects</h2>
+## Featured Projects
 
-I build both interactive experiences and software for practical, real-world needs.
+A few projects that represent the kind of work I enjoy creating, from collaborative game jams to practical software applications.
 
 ### Are We There Yet?
 
 ![Are We There Yet? game title card]({{ '/assets/images/are-we-there-yet.jpg' | relative_url }})
 
-**Team Game Jam · GMTK 2026 · Godot · GDScript**
+**Team Game Jam · GMTK Game Jam 2026 · Godot · GDScript**
 
-A raindrop-racing game about passing the time by watching raindrops race.
+A raindrop-racing game about passing the time by watching raindrops race down a car window.
 
-- **Team:** 4 people — 2 artists and 2 programmers
-- **Focus:** Collaborative game development and creative problem-solving
-- **Recognition:** Top 1% in Creativity, Artwork, and Narrative; top 2% in Audio; top 5% in Enjoyment
+- **Team:** 4 people — 2 programmers and 2 artists.
+- **My Contributions:** Raindrop physics, environmental obstacles, day progression, race synchronization, scoring, and dialogue integration.
+- **Recognition:** Top 1% in Creativity, Artwork, and Narrative; Top 2% in Audio; Top 5% in Enjoyment.
 
-[Play the Game](https://thejackxbl.itch.io/are-we-there-yet) · [Read the Case Study]({{ '/projects/are-we-there-yet/' | relative_url }})
+[Play the Game](https://thejackxbl.itch.io/are-we-there-yet) · [Source Code](https://github.com/TheJackXBL/GMTKGameJam2026/tree/main) · [Case Study]({{ '/projects/are-we-there-yet/' | relative_url }})
 
-### Inventory Management Application
+### Creative ArtReach Inventory Manager
 
-**C# · Windows Forms · CSV Data**
+![Creative ArtReach Inventory Manager home page]({{ '/assets/images/Inventory-Manager/IM_hp.png' | relative_url }})
 
-A desktop application built to help manage supplies and lesson plans at an educational enrichment program.
+**Individual Project · C# · Windows Forms · CSV Data**
 
-- **Focus:** Practical software development, data handling, and user workflows
-- **Highlights:** Supply tracking, project lookup, and identifying items that need to be ordered
+A desktop application I developed to make inventory management and activity planning easier at Creative ArtReach.
 
-[Read the Case Study]({{ '/projects/inventory-manager/' | relative_url }})
+- **Focus:** Data management, application development, and user-centered design.
+- **Highlights:** Inventory tracking, supply-based project recommendations, and project requirement calculations.
+
+[Source Code](https://github.com/LiviRoseGames/CreativeArtReach_InventoryManagement/tree/main) · [Case Study]({{ '/projects/inventory-manager/' | relative_url }})
 
 ### Wild Derby Carnival
 
@@ -50,93 +52,56 @@ A desktop application built to help manage supplies and lesson plans at an educa
 
 **Duo Game Jam · Wholesome Games Game Jam 2026 · Godot · GDScript**
 
-A horse-racing game inspired by the classic carnival game.
+A horse-racing game inspired by the classic carnival game, developed in collaboration with an artist.
 
-- **Team:** 2 people — artist and programmer
-- **Focus:** Modular design and intuitive controls
+- **Team:** 2 people — artist and programmer.
+- **Focus:** Gameplay programming, modular design, and intuitive controls.
 
-[Play the Game](https://livirosegames.itch.io/wild-derby-carnival) · [Read the Case Study]({{ '/projects/wild-derby-carnival/' | relative_url }})
+[Play the Game](https://livirosegames.itch.io/wild-derby-carnival) · [Case Study]({{ '/projects/wild-derby-carnival/' | relative_url }})
 
 ---
 
-## More Games
+## More Projects
 
-A selection of other games and creative projects I’ve worked on.
+Game jams and personal projects have given me opportunities to experiment with different genres, mechanics, and approaches to game development.
 
-- [Paper Puppeteer](https://livirosegames.itch.io/paper-puppeteer)
+- [Paper Puppeteer](https://livirosegames.itch.io/paper-puppeteer) — An animation test for a theoretical visual novel.
 - [Washed Up](https://livirosegames.itch.io/washed-up) — Clean up the beach and make something new.
 - [Cure Him](https://livirosegames.itch.io/cure-him) — Help your friend escape his fate.
-- [Please Leave Me Alone](https://livirosegames.itch.io/please-leave-me-alone) — Visual novel.
+- [Please Leave Me Alone](https://livirosegames.itch.io/please-leave-me-alone) — A visual novel.
 - [Bunny Hop](https://livirosegames.itch.io/bunny-hop) — A small Doodle Jump-inspired game.
 
 [Browse All My Games](https://livirosegames.itch.io/)
 
 ---
 
-## Technical Skills
+## Skills
 
-**Programming Languages**
+**Programming:** C++, C#, Java, Python, GDScript
 
-C++, C, C#, Python, Java, GDScript
+**Game Development:** Godot, Unity, Unreal Engine, gameplay systems, AI behaviors, prototyping, debugging, and optimization.
 
-**Game Development**
+**Software Development:** C# desktop applications, Windows Forms, data structures, CSV processing, and user interface development.
 
-Godot, Unity, Unreal Engine, gameplay mechanics, game systems, prototyping, debugging
-
-**Software Development**
-
-C# desktop applications, data handling, application workflows, problem-solving
-
-**Tools**
-
-Git, GitHub, Visual Studio, Blender, Adobe Creative Suite
+**Tools & Creative Software:** Git, GitHub, Visual Studio, Blender, Adobe Creative Suite.
 
 ---
 
-## Experience & Education
+## A Little More About Me
 
-### Education
+My interests extend beyond programming. I've spent time teaching science and robotics, participating in competitive robotics, and studying digital illustration. These experiences have shaped how I approach collaboration, creative problem-solving, and building things for other people.
 
-**Bachelor of Science in Computer Science — Expected 2028**
+You can read more about my background and the experiences that have shaped my work here:
 
-California State University, Channel Islands · Extended University
-
-**Associate in Science for Transfer — Computer Science**
-
-Solano Community College
-
-- Dean’s List
-- Founding member and treasurer of the Computer Science Club
-
-**First Place — Faculty Choice Award**
-
-Solano Community College Art Show · Digital Illustration
-
-### Experience
-
-#### Science & Robotics Enrichment Lead
-
-**Creative ArtReach · 2021–2026**
-
-- Designed and taught science, technology, and robotics activities for elementary-aged students.
-- Developed lessons and helped organize educational supplies and projects.
-- Built a C# Windows Forms application to support supply management and lesson-plan lookup.
-
----
-
-## About My Approach
-
-I’m interested in the point where technical systems meet the people who use them. Whether I’m building a game mechanic or a desktop application, I want the experience to feel understandable, responsive, and purposeful.
-
-My background spans computer science, digital illustration, and education. Studying art has helped me communicate with artists, understand visual design decisions, and collaborate across disciplines. Working in education has also taught me to consider how people with different levels of experience interact with the tools and systems I create.
+- [My Experience]({{ '/experience/' | relative_url }}) — My time with FIRST Robotics Competition and Creative ArtReach.
+- [About Me]({{ '/about/' | relative_url }}) — My education, interests, recognition, and approach to development.
 
 ---
 
 ## Contact
 
-I’m interested in opportunities to learn, collaborate, and contribute to software and game development projects.
+I'm always interested in opportunities to learn, collaborate, and contribute to game development and software engineering projects.
 
-- [GitHub](https://github.com/LiviRoseGames)
-- [Itch.io](https://livirosegames.itch.io/)
+[GitHub](https://github.com/LiviRoseGames) · [Itch.io](https://livirosegames.itch.io/)
 
-[Résumé]({{ '/assets/documents/resume.pdf' | relative_url }})
+[View My Résumé]({{ '/assets/documents/resume.pdf' | relative_url }})
