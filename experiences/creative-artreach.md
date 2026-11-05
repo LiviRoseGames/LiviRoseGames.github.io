@@ -109,7 +109,7 @@ Naturally, our robots became rovers. Students worked toward a final challenge: n
 
 Watching their excitement as their rovers finally completed the mission was incredibly rewarding. They took so much pride in what they had built, and I loved getting to be part of that process.
 
-![Rovers on the move]({{ '/assets/images/nars-camp.jpg' | relative_url }})
+![Rovers on the move]({{ '/assets/images/mars-camp.jpg' | relative_url }})
 
 ---
 
