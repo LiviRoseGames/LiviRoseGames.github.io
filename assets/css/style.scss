@@ -512,3 +512,11 @@ section td {
         grid-template-columns: 1fr;
     }
 }
+
+.photo-carousel .carousel-slide {
+    display: none !important;
+}
+
+.photo-carousel .carousel-slide.active {
+    display: block !important;
+}
