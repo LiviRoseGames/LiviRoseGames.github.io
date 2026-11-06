@@ -1,3 +1,6 @@
+---
+---
+
 @import "jekyll-theme-minimal";
 
 /* ========================================
@@ -119,27 +122,23 @@ figcaption {
 ======================================== */
 
 .photo-carousel {
-    position: relative;
     width: 100%;
     max-width: 850px;
     margin: 2rem auto;
 }
 
 .photo-carousel .carousel-images {
-    position: relative;
     overflow: hidden;
     background: #222;
     border-radius: 12px;
 }
 
-/* Hide every slide by default */
-.photo-carousel .carousel-images .carousel-slide {
+.photo-carousel .carousel-slide {
     display: none !important;
     margin: 0;
 }
 
-/* Only show the active slide */
-.photo-carousel .carousel-images .carousel-slide.active {
+.photo-carousel .carousel-slide.active {
     display: block !important;
 }
 
@@ -154,7 +153,6 @@ figcaption {
 .photo-carousel .carousel-slide figcaption {
     padding: 0.8rem 1rem;
     color: white;
-    font-size: 0.9rem;
     text-align: center;
 }
 
@@ -164,25 +162,6 @@ figcaption {
     align-items: center;
     gap: 1.5rem;
     padding: 0.75rem;
-}
-
-.photo-carousel .carousel-controls button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 6px;
-    background: transparent;
-    color: inherit;
-    font-size: 1.3rem;
-    cursor: pointer;
-}
-
-.photo-carousel .carousel-controls button:hover {
-    background: rgba(128, 128, 128, 0.2);
-}
-
-.photo-carousel .carousel-counter {
-    font-size: 0.9rem;
-    opacity: 0.75;
 }
 
 /* ========================================
