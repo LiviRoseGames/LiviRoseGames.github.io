@@ -278,7 +278,7 @@ Our robot, Loki, was built around a shooting mechanism. Rather than stacking tot
     >
 
     <iframe
-        src="https://www.youtube.com/watch?v=2pkX6uhW1X0"
+        src="https://www.youtube.com/embed/2pkX6uhW1X0"
         title="Team 701 Loki 2016 Robot Video"
         allowfullscreen>
     </iframe>

@@ -176,3 +176,41 @@ figcaption {
         grid-template-columns: 1fr;
     }
 }
+.artwork-layers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 850px;
+    margin: 2rem auto;
+}
+
+.artwork-layers figure,
+.artwork-combined {
+    margin: 0;
+    text-align: center;
+}
+
+.artwork-layers img,
+.artwork-combined img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.artwork-combined {
+    max-width: 650px;
+    margin: 1.5rem auto 2rem;
+}
+
+.artwork-layers figcaption,
+.artwork-combined figcaption {
+    margin-top: .5rem;
+    font-size: .9rem;
+}
+
+@media (max-width: 600px) {
+    .artwork-layers {
+        grid-template-columns: 1fr;
+    }
+}

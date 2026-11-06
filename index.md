@@ -65,7 +65,7 @@ A horse-racing game inspired by the classic carnival game, developed in collabor
 
 Game jams and personal projects have given me opportunities to experiment with different genres, mechanics, and approaches to game development.
 
-- [Paper Puppeteer](https://livirosegames.itch.io/paper-puppeteer) — An animation test for a theoretical visual novel.
+- [Paper Puppeteer](https://livirosegames.itch.io/paper-puppeteer) — An animation tester demo for an animated visual novel.
 - [Washed Up](https://livirosegames.itch.io/washed-up) — Clean up the beach and make something new.
 - [Cure Him](https://livirosegames.itch.io/cure-him) — Help your friend escape his fate.
 - [Please Leave Me Alone](https://livirosegames.itch.io/please-leave-me-alone) — A visual novel.
