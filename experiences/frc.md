@@ -3,7 +3,7 @@ layout: default
 title: FIRST Robotics Competition
 ---
 
-# F.I.R.S.T. Robotics Competition
+# FIRST Robotics Competition
 
 **FRC Team 701 · The RoboVikes · 2015–2017**
 
@@ -13,7 +13,7 @@ I've always thought of FRC as a sport for robots. Each January, teams receive a 
 
 Our robot code was written in C++, while we used Python for vision processing. During my time on the team, I went from being one of the programming students to leading the programming committee in my final year.
 
-During my time on the team, I went from being one of the programming students to leading the programming committee in my final year. Being part of a competitive robotics team gave me some of my earliest experiences with collaborative software development, technical problem-solving, and engineering under pressure.
+Being part of a competitive robotics team gave me some of my earliest experiences with collaborative software development, technical problem-solving, and engineering under pressure.
 
 ---
 
@@ -54,7 +54,7 @@ Our robot, Heimdall, was designed to collect and stack totes, building towers up
 <div class="robot-showcase">
     <img
         src="{{ '/assets/images/frc/2015/heimdall-final-photo.png' | relative_url }}"
-        alt="Heimdall, Team 701's 2015 robot"
+        alt="Heimdall, Team 701's 2015 competition robot"
     >
 
     <iframe
@@ -74,7 +74,6 @@ The prototype also gave us an opportunity to experiment with mechanisms before c
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/frc/2015/heimdall-early-prototype.png' | relative_url }}"
                  alt="Early wooden prototype of Heimdall's tote elevator">
@@ -122,7 +121,6 @@ The prototype also gave us an opportunity to experiment with mechanisms before c
                 The finished Heimdall, ready for competition!
             </figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
@@ -131,7 +129,6 @@ The prototype also gave us an opportunity to experiment with mechanisms before c
         <button class="carousel-next" type="button" aria-label="Next image">❯</button>
     </div>
 </div>
-
 
 #### The Tote Elevator
 
@@ -149,7 +146,7 @@ The presets handled the larger movements, while the drivers could still use joys
 
 Of course, the real world isn't always as predictable as a program expects. We quickly realized that the elevator's encoder readings could drift away from its actual position during repeated movement. Even small inaccuracies could make the preset positions less reliable over time.
 
-To address this, we added sensors and buttons at key points along the elevator's travel: the midpoint, the top, and the bottom. Whenever the elevator passed one of these reference points, the corresponding input could reset the encoder's recorded position to a known value. This allowed the elevator to periodically re-zero itself instead of letting positioning errors accumulate throughout a match.
+To address this, we added sensors and buttons at key points along the elevator's travel: the midpoint, the top, and the bottom. Whenever the elevator passed one of these reference points, the corresponding input could reset the encoder's recorded position to a known value. This allowed it to periodically re-zero itself instead of letting positioning errors accumulate throughout a match.
 
 Competition matches were intense, and there was already plenty for the drive team to think about. I always felt that one of the programmers' responsibilities was to make operating the robot as straightforward and reliable as possible. Building in ways to account for real-world inconsistencies was just as important as making the controls convenient in the first place.
 
@@ -197,63 +194,47 @@ The photos below capture some of our experiences throughout the season, includin
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/frc/2015/heimdall-competition-01.png' | relative_url }}"
                  alt="Heimdall competing during the 2015 Recycle Rush season">
-            <figcaption>
-                Heimdall competing in Recycle Rush.
-            </figcaption>
+            <figcaption>Heimdall competing in Recycle Rush.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2015/heimdall-competition-02.png' | relative_url }}"
                  alt="Heimdall competing during the 2015 Recycle Rush season">
-            <figcaption>
-                Another moment from our competition season.
-            </figcaption>
+            <figcaption>Another moment from our competition season.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2015/heimdall-competition-03.png' | relative_url }}"
-                 alt="Pictures of our team's tote stacks">
-            <figcaption>
-                Pictures of our team's tote stacks.
-            </figcaption>
+                 alt="Tote stacks built by Team 701">
+            <figcaption>Some of our team's tote stacks.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2015/robovikes-group-photo.png' | relative_url }}"
                  alt="Team 701 RoboVikes at the 2015 FIRST Championship">
-            <figcaption>
-                Team 701 at the FIRST Championship in 2015.
-            </figcaption>
+            <figcaption>Team 701 at the FIRST Championship in 2015.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2015/team-spirit.png' | relative_url }}"
                  alt="RoboVikes team spirit at the first competition">
-            <figcaption>
-                A little team spirit at my first competition!
-            </figcaption>
+            <figcaption>A little team spirit at my first competition!</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2015/frc-champ-welcome-banner.png' | relative_url }}"
                  alt="Welcome banner at the FIRST Championship">
-            <figcaption>
-                Arriving at the FIRST Championship.
-            </figcaption>
+            <figcaption>Arriving at the FIRST Championship.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2015/livi-dean-standee.png' | relative_url }}"
                  alt="Photo with a cardboard standee of the founder of FIRST">
-            <figcaption>
-                A photo with standee of FIRST's founder!
-            </figcaption>
+            <figcaption>A photo with a standee of FIRST's founder!</figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
@@ -274,7 +255,7 @@ Our robot, Loki, was built around a shooting mechanism. Rather than stacking tot
 <div class="robot-showcase">
     <img
         src="{{ '/assets/images/frc/2016/loki-final-glam.png' | relative_url }}"
-        alt="Loki, Team 701's 2016 robot"
+        alt="Loki, Team 701's 2016 competition robot"
     >
 
     <iframe
@@ -292,39 +273,29 @@ Planning the controls was another important part of the process. We discussed ho
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/frc/2016/loki-design-process-whiteboard.png' | relative_url }}"
                  alt="Whiteboard sketches of possible Loki designs">
-            <figcaption>
-                Early sketches and ideas for Loki's design.
-            </figcaption>
+            <figcaption>Early sketches and ideas for Loki's design.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-design-process.png' | relative_url }}"
                  alt="Loki's work-in-progress design in Autodesk software">
-            <figcaption>
-                Developing Loki's design in Autodesk software.
-            </figcaption>
+            <figcaption>Developing Loki's design in Autodesk software.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-todo-lists.png' | relative_url }}"
                  alt="Team task lists during Loki's development">
-            <figcaption>
-                Keeping track of everything that needed to get done.
-            </figcaption>
+            <figcaption>Keeping track of everything that needed to get done.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/planning-and-practicing.png' | relative_url }}"
-                 alt="Team meeting in the physics room with control sketches on the whiteboard">
-            <figcaption>
-                Planning and practicing our controls, with our ideas mapped out on the whiteboard.
-            </figcaption>
+                 alt="Team meeting with control sketches on a whiteboard">
+            <figcaption>Planning and practicing our controls, with our ideas mapped out on the whiteboard.</figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
@@ -340,63 +311,47 @@ As with Heimdall, we built a prototype that let us test our designs and begin pr
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-inside.png' | relative_url }}"
                  alt="Early internal construction of Loki's prototype">
-            <figcaption>
-                An early look inside the prototype.
-            </figcaption>
+            <figcaption>An early look inside the prototype.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-assembling.png' | relative_url }}"
                  alt="Loki's prototype being assembled">
-            <figcaption>
-                Putting the prototype together.
-            </figcaption>
+            <figcaption>Putting the prototype together.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-wiring.png' | relative_url }}"
                  alt="Wiring on Loki's prototype">
-            <figcaption>
-                Working through the prototype's wiring.
-            </figcaption>
+            <figcaption>Working through the prototype's wiring.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-wiring-02.png' | relative_url }}"
                  alt="Another view of the prototype wiring">
-            <figcaption>
-                Another look at the prototype's electrical setup.
-            </figcaption>
+            <figcaption>Another look at the prototype's electrical setup.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-full.png' | relative_url }}"
                  alt="Completed Loki prototype">
-            <figcaption>
-                The completed prototype, ready for testing.
-            </figcaption>
+            <figcaption>The completed prototype, ready for testing.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-full-02.png' | relative_url }}"
                  alt="Second view of the completed Loki prototype">
-            <figcaption>
-                Another view of the finished practice robot.
-            </figcaption>
+            <figcaption>Another view of the finished practice robot.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-prototype-testing.png' | relative_url }}"
                  alt="Driving Loki's completed prototype during testing">
-            <figcaption>
-                Testing the prototype on the practice field.
-            </figcaption>
+            <figcaption>Testing the prototype on the practice field.</figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
@@ -458,45 +413,34 @@ After all the planning, prototyping, and testing, we finally had our competition
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/frc/2016/loki-final-assembling.png' | relative_url }}"
                  alt="Loki during final robot assembly">
-            <figcaption>
-                Loki coming together during final assembly.
-            </figcaption>
+            <figcaption>Loki coming together during final assembly.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-final-wiring.png' | relative_url }}"
                  alt="Work in progress on Loki's final wiring">
-            <figcaption>
-                Final wiring work on the competition robot.
-            </figcaption>
+            <figcaption>Final wiring work on the competition robot.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-final-arm-up.png' | relative_url }}"
                  alt="Loki's completed arm raised to its full height">
-            <figcaption>
-                The completed arm raised to show its full reach.
-            </figcaption>
+            <figcaption>The completed arm raised to show its full reach.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/frc/2016/loki-final-glam.png' | relative_url }}"
                  alt="Finished Loki competition robot">
-            <figcaption>
-                Loki, ready for competition!
-            </figcaption>
+            <figcaption>Loki, ready for competition!</figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
         <button class="carousel-prev" type="button" aria-label="Previous image">❮</button>
         <span class="carousel-counter">1 / 4</span>
-        <button class="carousel-next" type="button" aria
         <button class="carousel-next" type="button" aria-label="Next image">❯</button>
     </div>
 </div>
@@ -512,7 +456,7 @@ Our robot, Ragnarok, needed to handle several different tasks. We continued deve
 <div class="robot-showcase">
     <img
         src="{{ '/assets/images/frc/2017/final-loaded-up.png' | relative_url }}"
-        alt="Ragnarok, Team 701's 2017 robot"
+        alt="Ragnarok, Team 701's 2017 competition robot"
     >
 
     <iframe
@@ -542,7 +486,6 @@ Our practice setup included a wooden replica of the competition field, which gav
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/frc/2017/final-loaded-up.png' | relative_url }}"
                  alt="Ragnarok positioned beneath the wooden practice field loader">
@@ -582,7 +525,6 @@ Our practice setup included a wooden replica of the competition field, which gav
                 Team 701 at the Sacramento Regional.
             </figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
@@ -601,6 +543,8 @@ Vision tape was an important part of our robots' targeting systems, but apparent
     alt="A teammate and me wearing reflective vision tape as headbands"
     style="display:block; max-width:700px; width:100%; margin:2rem auto; border-radius:12px;"
 >
+
+---
 
 ## Competition Results and Recognition
 

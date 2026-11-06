@@ -238,7 +238,7 @@ func add_streak_point():
 
 We also discussed how raindrops could interact with the trails left behind by other drops. I implemented a system that allows raindrops to detect and travel along existing trails. When a raindrop comes close enough to another raindrop's streak, it can attach to the trail and follow its path instead of continuing its normal physics-driven movement.
 
-While riding a streak, raindrops periodically attempt to break away. Their escape probability increases over time, with the friendliness statthe friendliness stat, which was later renamed "magnetism" in the player-facing UI, influencing how quickly that chance grows. Once they escape, they resume sliding with momentum in the direction of the trail, potentially creating new branching paths for other raindrops to follow.
+While riding a streak, raindrops periodically attempt to break away. Their escape probability increases over time, with the friendliness stat, which was later renamed "magnetism" in the player-facing UI, influencing how quickly that chance grows. Once they escape, they resume sliding with momentum in the direction of the trail, potentially creating new branching paths for other raindrops to follow.
 
 ```gdscript
 #Simplified excerpt from attempt_streak_escape()

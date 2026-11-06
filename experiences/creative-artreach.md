@@ -62,10 +62,9 @@ Other lessons gave students much more freedom to explore and solve problems crea
 
 <div class="photo-carousel" data-carousel>
     <div class="carousel-images">
-
         <figure class="carousel-slide active">
             <img src="{{ '/assets/images/robotics/robotics-01.jpg' | relative_url }}"
-                 alt="Students' creative robotics builds">
+                 alt="A student-created robotics build">
             <figcaption>I was always amazed by their creativity!</figcaption>
         </figure>
 
@@ -90,19 +89,19 @@ Other lessons gave students much more freedom to explore and solve problems crea
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/robotics/robotics-05.jpg' | relative_url }}"
                  alt="Students testing their robotic cars">
-            <figcaption>Testing out their cars</figcaption>
+            <figcaption>Testing out their cars.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/robotics/robotics-06.jpg' | relative_url }}"
                  alt="Students practicing robot programming">
-            <figcaption>Programming practice</figcaption>
+            <figcaption>Programming practice.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/robotics/robotics-07.jpg' | relative_url }}"
                  alt="Robotics competition field setup">
-            <figcaption>Setting up the field</figcaption>
+            <figcaption>Setting up the field.</figcaption>
         </figure>
 
         <figure class="carousel-slide">
@@ -114,18 +113,15 @@ Other lessons gave students much more freedom to explore and solve problems crea
         <figure class="carousel-slide">
             <img src="{{ '/assets/images/robotics/robotics-09.jpg' | relative_url }}"
                  alt="Students' completed robotic cars">
-            <figcaption>The cars were always a favorite</figcaption>
+            <figcaption>The cars were always a favorite.</figcaption>
         </figure>
-
     </div>
 
     <div class="carousel-controls">
         <button type="button" class="carousel-prev" aria-label="Previous image">
             &#10094;
         </button>
-
         <span class="carousel-counter">1 / 9</span>
-
         <button type="button" class="carousel-next" aria-label="Next image">
             &#10095;
         </button>

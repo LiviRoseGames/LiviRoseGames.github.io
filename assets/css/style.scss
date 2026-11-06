@@ -1,0 +1,511 @@
+@import "jekyll-theme-minimal";
+
+/* ========================================
+   Theme variables
+======================================== */
+
+:root {
+    --accent-color: #8b7de0;
+    --border-color: rgba(128, 128, 128, 0.3);
+    --text-muted: #888;
+
+    --code-background: #20232b;
+    --code-text: #e6edf3;
+    --code-inline-background: rgba(139, 125, 224, 0.12);
+
+    --blockquote-background: rgba(139, 125, 224, 0.08);
+}
+
+/* ========================================
+   Main page layout
+======================================== */
+
+body {
+    padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+.wrapper {
+    display: block;
+    width: min(100%, 1100px);
+    margin: 0 auto;
+}
+
+/* Override Minimal's default floated columns */
+
+.wrapper header,
+.wrapper section,
+.wrapper footer {
+    float: none;
+    position: static;
+    width: auto;
+}
+
+.wrapper header {
+    max-width: 850px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.wrapper section {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 0 2rem;
+}
+
+.wrapper footer {
+    max-width: 850px;
+    margin: 2rem auto 0;
+    text-align: center;
+}
+
+/* ========================================
+   Typography and spacing
+======================================== */
+
+section h1 {
+    margin-bottom: 1.5rem;
+}
+
+section h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+section h3 {
+    margin-top: 2rem;
+}
+
+section p {
+    line-height: 1.75;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* ========================================
+   Images and figures
+======================================== */
+
+figure {
+    margin: 2rem auto;
+    text-align: center;
+}
+
+figure img {
+    display: block;
+    max-width: 100%;
+    max-height: 550px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+figcaption {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ========================================
+   Photo carousel
+======================================== */
+
+.photo-carousel {
+    position: relative;
+    max-width: 850px;
+    margin: 2rem auto;
+}
+
+.carousel-images {
+    position: relative;
+    overflow: hidden;
+    background: #222;
+    border-radius: 12px;
+}
+
+.carousel-slide {
+    display: none;
+    margin: 0;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    max-height: 550px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.carousel-slide figcaption {
+    padding: 0.8rem 1rem;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem;
+}
+
+.carousel-controls button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.carousel-controls button:hover {
+    background: rgba(128, 128, 128, 0.2);
+}
+
+.carousel-counter {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* ========================================
+   Statistics cards
+======================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-card strong {
+    margin-bottom: 0.4rem;
+    font-size: 2rem;
+}
+
+.stat-card span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ========================================
+   Robotics showcase
+======================================== */
+
+.robot-showcase {
+    max-width: 850px;
+    margin: 2rem auto;
+}
+
+.robot-showcase img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+}
+
+.robot-showcase iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ========================================
+   Photo grid
+======================================== */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.photo-grid figure {
+    margin: 0;
+}
+
+.photo-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.photo-grid figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ========================================
+   Artwork layers
+======================================== */
+
+.artwork-layers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 850px;
+    margin: 2rem auto;
+}
+
+.artwork-layers figure,
+.artwork-combined {
+    margin: 0;
+    text-align: center;
+}
+
+.artwork-layers img,
+.artwork-combined img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.artwork-combined {
+    max-width: 650px;
+    margin: 1.5rem auto 2rem;
+}
+
+.artwork-layers figcaption,
+.artwork-combined figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   Code blocks and syntax highlighting
+======================================== */
+
+.highlight,
+.highlighter-rouge {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--code-background);
+}
+
+.highlight pre,
+.highlighter-rouge pre {
+    margin: 0;
+    padding: 1.25rem;
+    overflow-x: auto;
+    background: transparent;
+    color: var(--code-text);
+    line-height: 1.65;
+}
+
+.highlight code,
+.highlighter-rouge code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+/* Comments */
+
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cp,
+.highlight .cs {
+    color: #8b949e;
+    font-style: italic;
+}
+
+/* Keywords */
+
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+    color: #ff7b72;
+}
+
+/* Strings */
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sr,
+.highlight .ss,
+.highlight .sx {
+    color: #a5d6a7;
+}
+
+/* Functions and classes */
+
+.highlight .nf,
+.highlight .fm {
+    color: #d2a8ff;
+}
+
+.highlight .nc,
+.highlight .nn {
+    color: #ffa657;
+}
+
+/* Numbers and constants */
+
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo {
+    color: #79c0ff;
+}
+
+.highlight .no,
+.highlight .nb {
+    color: #79c0ff;
+}
+
+/* Variables, names, and attributes */
+
+.highlight .na,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+    color: #e6edf3;
+}
+
+/* Operators and punctuation */
+
+.highlight .o,
+.highlight .ow {
+    color: #ff7b72;
+}
+
+.highlight .p {
+    color: #c9d1d9;
+}
+
+/* HTML/XML tags */
+
+.highlight .nt {
+    color: #7ee787;
+}
+
+/* Inline code */
+
+:not(pre) > code {
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    background: var(--code-inline-background);
+    color: var(--accent-color);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+/* ========================================
+   Blockquotes
+======================================== */
+
+blockquote {
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 8px 8px 0;
+    background: var(--blockquote-background);
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   Tables
+======================================== */
+
+section table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+section th,
+section td {
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border-color);
+}
+
+/* ========================================
+   Responsive layout
+======================================== */
+
+@media (max-width: 700px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .photo-grid,
+    .artwork-layers {
+        grid-template-columns: 1fr;
+    }
+
+    .wrapper header {
+        margin-bottom: 2rem;
+    }
+
+    section h2 {
+        margin-top: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

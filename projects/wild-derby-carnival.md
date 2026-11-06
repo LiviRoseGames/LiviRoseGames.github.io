@@ -100,7 +100,7 @@ I implemented the core ball-and-scoring system that connects player input to rac
 
 #### Flick-Based Controls
 
-I separated the player's input handling from the ball's physics by using a dedicated `playe_controller`. This script manages ball pickup, cursor interaction, aiming, and launch calculations, while the ball handles its own physical response.
+I separated the player's input handling from the ball's physics by using a dedicated `player_controller`. This script manages ball pickup, cursor interaction, aiming, and launch calculations, while the ball handles its own physical response.
 
 When the player hovers over the ball, the controller checks whether it can be picked up. The ball must be in an available state and overlap its designated holding area before aiming can begin. I also implemented circular mouse hit detection using the ball's `CircleShape2D`, so the player interacts with the actual ball rather than its rectangular sprite bounds.
 

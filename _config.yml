@@ -2,3 +2,4 @@ theme: jekyll-theme-minimal
 title: Livi | Software & Game Developer
 description: Computer Science student and game developer creating interactive experiences.
 permalink: pretty
+highlighter: rouge
