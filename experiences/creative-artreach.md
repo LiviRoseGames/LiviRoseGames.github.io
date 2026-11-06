@@ -189,3 +189,5 @@ It taught me how to take an idea from a proposal to something people could actua
 Most importantly, I loved getting to share something I was passionate about with students who were discovering it for themselves. Seeing their excitement, creativity, and pride in what they accomplished made all the planning and preparation worthwhile.
 
 And, of course, I got very good at hauling an unreasonable amount of equipment all over my little corner of NorCal.
+
+<script src="{{ '/assets/js/carousel.js' | relative_url }}" defer></script>
