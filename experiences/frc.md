@@ -3,7 +3,7 @@ layout: default
 title: FIRST Robotics Competition
 ---
 
-# FIRST Robotics Competition
+# F.I.R.S.T. Robotics Competition
 
 **FRC Team 701 · The RoboVikes · 2015–2017**
 
