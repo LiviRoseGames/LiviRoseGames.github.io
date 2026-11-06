@@ -57,7 +57,7 @@ A horse-racing game inspired by the classic carnival game, developed in collabor
 - **Team:** 2 people — artist and programmer.
 - **Focus:** Gameplay programming, modular design, and intuitive controls.
 
-[Play the Game](https://livirosegames.itch.io/wild-derby-carnival) · [Case Study]({{ '/projects/wild-derby-carnival/' | relative_url }})
+[Play the Game](https://livirosegames.itch.io/wild-derby-carnival) · [Source Code](https://github.com/LiviRoseGames/Wholesome-Gamejam-2026/tree/main) · [Case Study]({{ '/projects/wild-derby-carnival/' | relative_url }})
 
 ---
 
@@ -72,18 +72,6 @@ Game jams and personal projects have given me opportunities to experiment with d
 - [Bunny Hop](https://livirosegames.itch.io/bunny-hop) — A small Doodle Jump-inspired game.
 
 [Browse All My Games](https://livirosegames.itch.io/)
-
----
-
-## Skills
-
-**Programming:** C++, C#, Java, Python, GDScript
-
-**Game Development:** Godot, Unity, Unreal Engine, gameplay systems, AI behaviors, prototyping, debugging, and optimization.
-
-**Software Development:** C# desktop applications, Windows Forms, data structures, CSV processing, and user interface development.
-
-**Tools & Creative Software:** Git, GitHub, Visual Studio, Blender, Adobe Creative Suite.
 
 ---
 
