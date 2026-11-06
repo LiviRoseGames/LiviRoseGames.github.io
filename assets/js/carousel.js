@@ -1,45 +1,31 @@
-
-function initializeCarousels() {
-    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".photo-carousel").forEach(carousel => {
         const slides = carousel.querySelectorAll(".carousel-slide");
-        const previous = carousel.querySelector(".carousel-prev");
-        const next = carousel.querySelector(".carousel-next");
+        const previousButton = carousel.querySelector(".carousel-prev");
+        const nextButton = carousel.querySelector(".carousel-next");
         const counter = carousel.querySelector(".carousel-counter");
 
-        // Make sure this carousel has everything it needs.
-        if (!slides.length || !previous || !next || !counter) {
-            console.warn("Carousel is missing required elements:", carousel);
+        if (slides.length === 0 || !previousButton || !nextButton || !counter) {
             return;
         }
 
         let currentIndex = 0;
 
         function showSlide(index) {
+            slides[currentIndex].classList.remove("active");
+
             currentIndex = (index + slides.length) % slides.length;
 
-            slides.forEach((slide, i) => {
-                slide.classList.toggle("active", i === currentIndex);
-            });
-
+            slides[currentIndex].classList.add("active");
             counter.textContent = `${currentIndex + 1} / ${slides.length}`;
         }
 
-        previous.addEventListener("click", () => {
+        previousButton.addEventListener("click", () => {
             showSlide(currentIndex - 1);
         });
 
-        next.addEventListener("click", () => {
+        nextButton.addEventListener("click", () => {
             showSlide(currentIndex + 1);
         });
-
-        showSlide(0);
     });
-}
-
-// Run immediately if the page is already loaded.
-// Otherwise, wait until the HTML has been parsed.
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeCarousels);
-} else {
-    initializeCarousels();
-}
+});

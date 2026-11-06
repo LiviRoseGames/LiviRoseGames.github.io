@@ -120,27 +120,30 @@ figcaption {
 
 .photo-carousel {
     position: relative;
+    width: 100%;
     max-width: 850px;
     margin: 2rem auto;
 }
 
-.carousel-images {
+.photo-carousel .carousel-images {
     position: relative;
     overflow: hidden;
     background: #222;
     border-radius: 12px;
 }
 
-.carousel-slide {
-    display: none;
+/* Hide every slide by default */
+.photo-carousel .carousel-images .carousel-slide {
+    display: none !important;
     margin: 0;
 }
 
-.carousel-slide.active {
-    display: block;
+/* Only show the active slide */
+.photo-carousel .carousel-images .carousel-slide.active {
+    display: block !important;
 }
 
-.carousel-slide img {
+.photo-carousel .carousel-slide img {
     display: block;
     width: 100%;
     max-height: 550px;
@@ -148,14 +151,14 @@ figcaption {
     object-fit: contain;
 }
 
-.carousel-slide figcaption {
+.photo-carousel .carousel-slide figcaption {
     padding: 0.8rem 1rem;
     color: white;
     font-size: 0.9rem;
     text-align: center;
 }
 
-.carousel-controls {
+.photo-carousel .carousel-controls {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,7 +166,7 @@ figcaption {
     padding: 0.75rem;
 }
 
-.carousel-controls button {
+.photo-carousel .carousel-controls button {
     padding: 0.4rem 0.8rem;
     border: none;
     border-radius: 6px;
@@ -173,11 +176,11 @@ figcaption {
     cursor: pointer;
 }
 
-.carousel-controls button:hover {
+.photo-carousel .carousel-controls button:hover {
     background: rgba(128, 128, 128, 0.2);
 }
 
-.carousel-counter {
+.photo-carousel .carousel-counter {
     font-size: 0.9rem;
     opacity: 0.75;
 }
